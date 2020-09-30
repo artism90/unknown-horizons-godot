@@ -1,7 +1,24 @@
+tool
 extends Spatial
 class_name Game
 
 signal notification(message_type, message_text) # int, String
+
+enum CameraYRotation {
+	MINUS_45 = -45,
+	PLUS_45 = 45,
+	PLUS_135 = 135,
+	MINUS_135 = -135,
+}
+
+export(bool) var in_game_preview := true
+
+export(CameraYRotation) var viewport_1_y_rotation := CameraYRotation.MINUS_45
+export(CameraYRotation) var viewport_2_y_rotation := CameraYRotation.PLUS_45
+export(CameraYRotation) var viewport_3_y_rotation := CameraYRotation.PLUS_135
+export(CameraYRotation) var viewport_4_y_rotation := CameraYRotation.MINUS_135
+
+var viewport_cameras = []
 
 var is_game_running = false
 
@@ -12,6 +29,10 @@ var player: Control = null
 var ai_players = []
 
 func _ready() -> void:
+	if Engine.is_editor_hint():
+		_get_editor_viewports()
+		return
+
 	Global.Game = self
 	player_start = Global.PlayerStart
 
@@ -20,6 +41,11 @@ func _ready() -> void:
 	Audio.play_entry_snd()
 
 func _process(_delta: float) -> void:
+	if Engine.is_editor_hint():
+		if in_game_preview:
+			_update_editor_viewports()
+		return
+
 	if not is_game_running:
 		start_game()
 
@@ -79,3 +105,44 @@ func start_game() -> void:
 			pass # TODO
 
 	is_game_running = true
+
+func _get_editor_viewports() -> void:
+	var editor_plugin = EditorPlugin.new()
+	var editor_interface = editor_plugin.get_editor_interface()
+
+	var spatial_editor = editor_interface.get_editor_viewport().get_child(1)
+	# get_child(1) HSplitContainer:10997
+	#  .get_child(0) VSplitContainer:10998
+	#   .get_child(0) SpatialEditorViewportContainer:10999
+	#    .get_children()
+	#
+	# [SpatialEditorViewport:11000] => [ViewportContainer:11001] => [Viewport:11002]
+	# [SpatialEditorViewport:11051] => [ViewportContainer:11052] => [Viewport:11053]
+	# [SpatialEditorViewport:11081] => [ViewportContainer:11082] => [Viewport:11083]
+	# [SpatialEditorViewport:11111] => [ViewportContainer:11112] => [Viewport:11113]
+	for spatial_editor_viewport in spatial_editor.\
+		get_child(1).\
+		 get_child(0).\
+		  get_child(0).\
+		   get_children():
+
+		viewport_cameras.append(spatial_editor_viewport.get_child(0).get_child(0).get_camera())
+
+	# Realign in the order as they appear in the 3D editor when adding another one
+	viewport_cameras = [
+		viewport_cameras[0],
+		viewport_cameras[2],
+		viewport_cameras[3],
+		viewport_cameras[1],
+	]
+
+func _update_editor_viewports() -> void:
+	if viewport_cameras == []:
+		_get_editor_viewports()
+
+	var i = 1
+	for viewport_camera in viewport_cameras:
+		viewport_camera.rotation_degrees.x = -35
+		viewport_camera.rotation_degrees.y = get("viewport_%s_y_rotation" % i)
+		viewport_camera.rotation_degrees.z = 0
+		i += 1
