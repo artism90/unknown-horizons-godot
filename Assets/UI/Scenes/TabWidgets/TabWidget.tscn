@@ -1,266 +1,325 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=22 format=3 uid="uid://mrdow08wpla7"]
 
-[ext_resource path="res://Assets/UI/Scenes/Labels/GameSpeedLabel.tscn" type="PackedScene" id=1]
-[ext_resource path="res://Assets/UI/Scripts/TabWidget.gd" type="Script" id=2]
-[ext_resource path="res://Assets/UI/Images/Background/Widgets/map_bg.png" type="Texture" id=3]
-[ext_resource path="res://Assets/UI/Images/TabWidget/main_bg_top.png" type="Texture" id=4]
-[ext_resource path="res://Assets/UI/Images/TabWidget/main_bg_fill.png" type="Texture" id=5]
-[ext_resource path="res://Assets/UI/Images/TabWidget/main_bg_bottom.png" type="Texture" id=6]
-[ext_resource path="res://Assets/UI/Scenes/TabWidgets/Buttons/MainButtons/Buttons/LogbookButton.tscn" type="PackedScene" id=7]
-[ext_resource path="res://Assets/UI/Scenes/TabWidgets/Buttons/MainButtons/Buttons/TearButton.tscn" type="PackedScene" id=8]
-[ext_resource path="res://Assets/UI/Scenes/TabWidgets/Buttons/MainButtons/Buttons/GameSpeedDownButton.tscn" type="PackedScene" id=9]
-[ext_resource path="res://Assets/UI/Scenes/TabWidgets/Buttons/MainButtons/Buttons/GameSpeedUpButton.tscn" type="PackedScene" id=10]
-[ext_resource path="res://Assets/UI/Fonts/SmallFontItalic.tres" type="DynamicFont" id=11]
-[ext_resource path="res://Assets/UI/Scenes/TabWidgets/Buttons/MainButtons/Buttons/BuildMenuButton.tscn" type="PackedScene" id=12]
-[ext_resource path="res://Assets/UI/Scenes/TabWidgets/Buttons/MainButtons/Buttons/RotateLeftButton.tscn" type="PackedScene" id=13]
-[ext_resource path="res://Assets/UI/Scenes/TabWidgets/Buttons/MainButtons/Buttons/DiplomacyButton.tscn" type="PackedScene" id=14]
-[ext_resource path="res://Assets/UI/Scenes/TabWidgets/Buttons/MainButtons/Buttons/ZoomOutButton.tscn" type="PackedScene" id=15]
-[ext_resource path="res://Assets/UI/Scenes/TabWidgets/Buttons/MainButtons/Buttons/GameMenuButton.tscn" type="PackedScene" id=16]
-[ext_resource path="res://Assets/UI/Scenes/TabWidgets/Buttons/MainButtons/Buttons/RotateRightButton.tscn" type="PackedScene" id=17]
-[ext_resource path="res://Assets/UI/Scenes/TabWidgets/Buttons/MainButtons/Buttons/ZoomInButton.tscn" type="PackedScene" id=18]
-[ext_resource path="res://Assets/Player/Minimap/Minimap.tscn" type="PackedScene" id=19]
+[ext_resource type="FontFile" path="res://Assets/UI/Fonts/SmallFontItalic.tres" id="1"]
+[ext_resource type="Script" path="res://Assets/UI/Scripts/TabWidget.gd" id="2"]
+[ext_resource type="Texture2D" uid="uid://5gbvga1bqpxa" path="res://Assets/UI/Images/Background/Widgets/map_bg.png" id="3"]
+[ext_resource type="Texture2D" uid="uid://3203obnnsej3" path="res://Assets/UI/Images/TabWidget/main_bg_top.png" id="4"]
+[ext_resource type="PackedScene" uid="uid://bfhntmirjr85e" path="res://Assets/UI/Scenes/TabWidgets/Buttons/MainButtons/Buttons/GameSpeedUpButton.tscn" id="4_g3qxs"]
+[ext_resource type="Texture2D" uid="uid://budf74yum8w6e" path="res://Assets/UI/Images/TabWidget/main_bg_fill.png" id="5"]
+[ext_resource type="Texture2D" uid="uid://c7f5k0k27nsh1" path="res://Assets/UI/Images/TabWidget/main_bg_bottom.png" id="6"]
+[ext_resource type="PackedScene" uid="uid://0feld2cyb2be" path="res://Assets/UI/Scenes/TabWidgets/Buttons/MainButtons/Buttons/LogbookButton.tscn" id="7"]
+[ext_resource type="PackedScene" uid="uid://ci4guuvb1a02y" path="res://Assets/UI/Scenes/TabWidgets/Buttons/MainButtons/Buttons/TearButton.tscn" id="8"]
+[ext_resource type="Script" path="res://Assets/UI/Scenes/TabWidgets/Buttons/MainButtons/Buttons/GameSpeedLabel.gd" id="8_joybd"]
+[ext_resource type="PackedScene" uid="uid://gxdbuf64v8ew" path="res://Assets/UI/Scenes/TabWidgets/Buttons/MainButtons/Buttons/GameSpeedDownButton.tscn" id="8_lneb5"]
+[ext_resource type="PackedScene" uid="uid://cbnxdcqt458h3" path="res://Assets/UI/Scenes/Labels/LabelEx.tscn" id="11"]
+[ext_resource type="PackedScene" uid="uid://dlx48y4ra3wkg" path="res://Assets/UI/Scenes/TabWidgets/Buttons/MainButtons/Buttons/BuildMenuButton.tscn" id="12"]
+[ext_resource type="PackedScene" uid="uid://xbe8ekuai5pp" path="res://Assets/UI/Scenes/TabWidgets/Buttons/MainButtons/Buttons/RotateLeftButton.tscn" id="13"]
+[ext_resource type="PackedScene" uid="uid://dmlapokyxwbl7" path="res://Assets/UI/Scenes/TabWidgets/Buttons/MainButtons/Buttons/DiplomacyButton.tscn" id="14"]
+[ext_resource type="PackedScene" uid="uid://dx6eq7gacc0fg" path="res://Assets/UI/Scenes/TabWidgets/Buttons/MainButtons/Buttons/ZoomOutButton.tscn" id="15"]
+[ext_resource type="PackedScene" uid="uid://bydxva5xw1pq4" path="res://Assets/UI/Scenes/TabWidgets/Buttons/MainButtons/Buttons/GameMenuButton.tscn" id="16"]
+[ext_resource type="PackedScene" uid="uid://dsk7oaomepve4" path="res://Assets/UI/Scenes/TabWidgets/Buttons/MainButtons/Buttons/RotateRightButton.tscn" id="17"]
+[ext_resource type="PackedScene" uid="uid://bqa6aa3yypqm0" path="res://Assets/UI/Scenes/TabWidgets/Buttons/MainButtons/Buttons/ZoomInButton.tscn" id="18"]
+[ext_resource type="Script" path="res://Assets/UI/Scenes/TabWidgets/WidgetDetail.gd" id="18_x0tmu"]
+[ext_resource type="PackedScene" uid="uid://d08xfnfci8npi" path="res://Assets/Player/Minimap/Minimap.tscn" id="19"]
 
 [node name="TabWidget" type="Control"]
+custom_minimum_size = Vector2(251, 355)
+layout_mode = 3
+anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-margin_left = -125.5
-margin_right = 125.5
-margin_bottom = 355.0
-rect_min_size = Vector2( 251, 355 )
-mouse_filter = 2
+offset_left = -125.5
+offset_right = 125.5
+offset_bottom = 355.0
+grow_horizontal = 2
 size_flags_vertical = 0
-script = ExtResource( 2 )
-__meta__ = {
-"_edit_lock_": true
-}
+mouse_filter = 2
+script = ExtResource("2")
+metadata/_edit_lock_ = true
 
-[node name="Minimap" parent="." instance=ExtResource( 19 )]
+[node name="Minimap" parent="." instance=ExtResource("19")]
+layout_mode = 1
+anchors_preset = 5
 anchor_top = 0.0
 anchor_bottom = 0.0
-margin_left = -100.0
-margin_top = 4.0
-margin_right = 100.0
-margin_bottom = 204.0
-rect_rotation = -45.0
-rect_scale = Vector2( 0.6, 0.6 )
-rect_pivot_offset = Vector2( 100, 100 )
+offset_left = -100.0
+offset_top = 0.0
+offset_right = 100.0
+offset_bottom = 200.0
+grow_vertical = 1
+rotation = -45.0
+scale = Vector2(0.6, 0.6)
+pivot_offset = Vector2(100, 100)
 
 [node name="WidgetTop" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-margin_left = -125.5
-margin_right = 125.5
-margin_bottom = 210.0
-texture = ExtResource( 3 )
-stretch_mode = 4
-__meta__ = {
-"_edit_lock_": true
-}
+offset_left = -118.0
+offset_right = 118.0
+offset_bottom = 210.0
+grow_horizontal = 2
+texture = ExtResource("3")
+stretch_mode = 3
+metadata/_edit_lock_ = true
 
 [node name="GameSpeedControls" type="Control" parent="WidgetTop"]
+layout_mode = 1
+anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -81.5
-margin_top = -80.0
-margin_right = -12.5
-margin_bottom = -21.0
-__meta__ = {
-"_edit_group_": true,
-"_edit_lock_": true
-}
+offset_left = -81.5
+offset_top = -80.0
+offset_right = -12.5
+offset_bottom = -21.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_group_ = true
+metadata/_edit_lock_ = true
 
-[node name="GameSpeedUpButton" parent="WidgetTop/GameSpeedControls" instance=ExtResource( 10 )]
-margin_left = 6.74774
-margin_top = -29.0674
-margin_right = 34.7477
-margin_bottom = -1.0674
-size_flags_horizontal = 6
-game_speed_change = 0.2
+[node name="GameSpeedUpButton" parent="WidgetTop/GameSpeedControls" instance=ExtResource("4_g3qxs")]
+layout_mode = 1
+offset_left = 6.748
+offset_top = -29.067
+offset_right = 34.748
+offset_bottom = -1.067
+grow_horizontal = 2
+grow_vertical = 2
 
-[node name="GameSpeedLabel" parent="WidgetTop/GameSpeedControls" instance=ExtResource( 1 )]
+[node name="GameSpeedLabel" parent="WidgetTop/GameSpeedControls" instance=ExtResource("11")]
+layout_mode = 0
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -11.0
-margin_top = -11.0
-margin_right = 19.0
-margin_bottom = 6.0
-custom_fonts/font = ExtResource( 11 )
-text = "1.0x"
+offset_left = -6.05591
+offset_top = -11.6583
+offset_right = 8.94409
+offset_bottom = 6.34167
+theme_override_fonts/font = ExtResource("1")
+text = "1x"
+script = ExtResource("8_joybd")
 
-[node name="GameSpeedDownButton" parent="WidgetTop/GameSpeedControls" instance=ExtResource( 9 )]
-margin_left = -34.0559
-margin_top = 1.80121
-margin_right = -6.05591
-margin_bottom = 29.8012
-game_speed_change = -0.2
+[node name="GameSpeedDownButton" parent="WidgetTop/GameSpeedControls" instance=ExtResource("8_lneb5")]
+layout_mode = 1
+offset_left = -34.056
+offset_top = 1.801
+offset_right = -6.056
+offset_bottom = 29.801
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="ZoomControls" type="Control" parent="WidgetTop"]
+anchors_preset = 0
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = 11.5
-margin_top = -80.0
-margin_right = 80.5
-margin_bottom = -21.0
-__meta__ = {
-"_edit_group_": true,
-"_edit_lock_": true
-}
+offset_left = 11.5
+offset_top = -80.0
+offset_right = 80.5
+offset_bottom = -21.0
+metadata/_edit_group_ = true
+metadata/_edit_lock_ = true
 
-[node name="ZoomInButton" parent="WidgetTop/ZoomControls" instance=ExtResource( 18 )]
-margin_left = -32.348
-margin_top = -29.0674
-margin_right = -4.34802
-margin_bottom = -1.0674
+[node name="ZoomInButton" parent="WidgetTop/ZoomControls" instance=ExtResource("18")]
+layout_mode = 1
+anchors_preset = 0
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 28.0
+offset_bottom = 28.0
 size_flags_horizontal = 6
 
-[node name="ZoomOutButton" parent="WidgetTop/ZoomControls" instance=ExtResource( 15 )]
-margin_left = 1.65198
-margin_top = 1.80121
-margin_right = 29.652
-margin_bottom = 29.8012
+[node name="ZoomOutButton" parent="WidgetTop/ZoomControls" instance=ExtResource("15")]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -28.0
+offset_top = -28.0
+offset_right = 0.0
+offset_bottom = 0.0
+grow_horizontal = 0
+grow_vertical = 0
 size_flags_horizontal = 6
 
 [node name="RotateControls" type="Control" parent="WidgetTop"]
+layout_mode = 1
+anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -42.5
-margin_top = 43.0
-margin_right = 41.5
-margin_bottom = 70.0
-__meta__ = {
-"_edit_group_": true,
-"_edit_lock_": true
-}
+offset_left = -42.5
+offset_top = 43.0
+offset_right = 41.5
+offset_bottom = 70.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_group_ = true
+metadata/_edit_lock_ = true
 
-[node name="RotateLeftButton" parent="WidgetTop/RotateControls" instance=ExtResource( 13 )]
-margin_left = -42.0
-margin_top = -13.5
-margin_right = -14.0
-margin_bottom = 14.5
+[node name="RotateLeftButton" parent="WidgetTop/RotateControls" instance=ExtResource("13")]
+layout_mode = 1
+anchors_preset = 0
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 28.0
+offset_bottom = 28.0
 size_flags_horizontal = 6
 
-[node name="RotateRightButton" parent="WidgetTop/RotateControls" instance=ExtResource( 17 )]
-margin_left = 14.0
-margin_top = -13.5
-margin_right = 42.0
-margin_bottom = 14.5
+[node name="RotateRightButton" parent="WidgetTop/RotateControls" instance=ExtResource("17")]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_top = 0.0
+anchor_right = 1.0
+anchor_bottom = 0.0
+offset_left = -28.0
+offset_top = 0.0
+offset_right = 0.0
+offset_bottom = 28.0
+grow_horizontal = 0
 size_flags_horizontal = 6
 
-[node name="TearButton" parent="WidgetTop" instance=ExtResource( 8 )]
-margin_left = -93.5
-margin_top = 43.0
-margin_right = -67.5
-margin_bottom = 69.0
+[node name="TearButton" parent="WidgetTop" instance=ExtResource("8")]
+layout_mode = 1
+offset_left = -86.0
+offset_top = 43.0
+offset_right = -60.0
+offset_bottom = 69.0
+grow_horizontal = 2
+grow_vertical = 2
 size_flags_horizontal = 6
+metadata/_edit_group_ = true
+metadata/_edit_lock_ = true
 
-[node name="LogbookButton" parent="WidgetTop" instance=ExtResource( 7 )]
-margin_left = -60.5357
-margin_top = 70.3427
-margin_right = -34.5357
-margin_bottom = 96.3427
+[node name="LogbookButton" parent="WidgetTop" instance=ExtResource("7")]
+layout_mode = 1
+offset_left = -53.036
+offset_top = 70.343
+offset_right = -27.036
+offset_bottom = 96.343
+grow_horizontal = 2
+grow_vertical = 2
 size_flags_horizontal = 6
+metadata/_edit_group_ = true
+metadata/_edit_lock_ = true
 
-[node name="BuildMenuButton" parent="WidgetTop" instance=ExtResource( 12 )]
-margin_left = -14.5
-margin_top = 83.0
-margin_right = 17.5
-margin_bottom = 115.0
+[node name="BuildMenuButton" parent="WidgetTop" instance=ExtResource("12")]
+layout_mode = 1
+offset_top = 83.0
+offset_bottom = 115.0
+scale = Vector2(0.9, 0.9)
 size_flags_horizontal = 6
+metadata/_edit_group_ = true
+metadata/_edit_lock_ = true
 
-[node name="DiplomacyButton" parent="WidgetTop" instance=ExtResource( 14 )]
-margin_left = 33.424
-margin_top = 69.5009
-margin_right = 59.424
-margin_bottom = 95.5009
+[node name="DiplomacyButton" parent="WidgetTop" instance=ExtResource("14")]
+layout_mode = 1
+offset_left = 25.0
+offset_top = 69.501
+offset_right = 51.0
+offset_bottom = 95.501
+grow_horizontal = 2
+grow_vertical = 2
 size_flags_horizontal = 6
+metadata/_edit_group_ = true
+metadata/_edit_lock_ = true
 
-[node name="GameMenuButton" parent="WidgetTop" instance=ExtResource( 16 )]
-margin_left = 65.5
-margin_top = 40.0
-margin_right = 97.5
-margin_bottom = 72.0
+[node name="GameMenuButton" parent="WidgetTop" instance=ExtResource("16")]
+layout_mode = 1
+offset_left = 60.0
+offset_top = 40.0
+offset_right = 92.0
+offset_bottom = 72.0
+grow_horizontal = 2
+grow_vertical = 2
 size_flags_horizontal = 6
+metadata/_edit_group_ = true
+metadata/_edit_lock_ = true
 
 [node name="WidgetDetail" type="VBoxContainer" parent="."]
 show_behind_parent = true
+custom_minimum_size = Vector2(251, 198)
+layout_mode = 1
+anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -125.5
-margin_top = -20.5
-margin_right = 125.5
-margin_bottom = 177.5
-rect_min_size = Vector2( 251, 198 )
-mouse_filter = 2
+offset_left = -125.5
+offset_top = -20.5
+offset_right = 125.5
+offset_bottom = 177.5
+grow_horizontal = 2
+grow_vertical = 2
 size_flags_vertical = 3
-custom_constants/separation = 0
-__meta__ = {
-"_edit_lock_": true
-}
+mouse_filter = 2
+theme_override_constants/separation = 0
+script = ExtResource("18_x0tmu")
+metadata/_edit_lock_ = true
 
 [node name="TextureRect" type="TextureRect" parent="WidgetDetail"]
-margin_right = 251.0
-margin_bottom = 60.0
-rect_min_size = Vector2( 0, 60 )
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+size_flags_vertical = 4
 mouse_filter = 2
-texture = ExtResource( 4 )
+texture = ExtResource("4")
 stretch_mode = 6
-__meta__ = {
-"_edit_lock_": true
-}
+metadata/_edit_lock_ = true
 
 [node name="Body" type="TextureRect" parent="WidgetDetail"]
-margin_top = 60.0
-margin_right = 251.0
-margin_bottom = 110.0
-rect_min_size = Vector2( 0, 50 )
-size_flags_horizontal = 4
-texture = ExtResource( 5 )
-stretch_mode = 2
-__meta__ = {
-"_edit_lock_": true
-}
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+size_flags_vertical = 3
+texture = ExtResource("5")
+stretch_mode = 1
+metadata/_edit_lock_ = true
 
 [node name="TabSwitches" type="VBoxContainer" parent="WidgetDetail/Body"]
 show_behind_parent = true
-margin_left = -38.0
-margin_right = 2.0
-margin_bottom = 48.0
-__meta__ = {
-"_edit_lock_": true
-}
+layout_mode = 0
+offset_left = -38.0
+offset_right = 2.0
+offset_bottom = 48.0
+metadata/_edit_lock_ = true
 
 [node name="TabContainer" type="TabContainer" parent="WidgetDetail/Body"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 17.0
-margin_right = -17.0
-rect_min_size = Vector2( 0, 50 )
+custom_minimum_size = Vector2(217, 50)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -108.5
+offset_right = 108.5
+offset_bottom = 50.0
+grow_horizontal = 2
 tabs_visible = false
-__meta__ = {
-"_edit_lock_": true
-}
+metadata/_edit_lock_ = true
 
 [node name="TextureRect2" type="TextureRect" parent="WidgetDetail"]
 show_behind_parent = true
-margin_top = 110.0
-margin_right = 251.0
-margin_bottom = 198.0
-rect_min_size = Vector2( 0, 88 )
-texture = ExtResource( 6 )
+custom_minimum_size = Vector2(0, 88)
+layout_mode = 2
+texture = ExtResource("6")
 stretch_mode = 4
-__meta__ = {
-"_edit_lock_": true
-}
+metadata/_edit_lock_ = true
 
 [connection signal="visibility_changed" from="." to="." method="_on_TabWidget_visibility_changed"]
 [connection signal="pressed" from="WidgetTop/TearButton" to="." method="_on_TearButton_pressed"]

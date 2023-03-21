@@ -1,132 +1,123 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=14 format=3 uid="uid://cfkidcex3gjse"]
 
-[ext_resource path="res://Assets/UI/Scripts/CityInfo.gd" type="Script" id=1]
-[ext_resource path="res://Assets/UI/Images/Background/Widgets/cityinfo_left.png" type="Texture" id=2]
-[ext_resource path="res://Assets/UI/Images/Background/Widgets/cityinfo_fill.png" type="Texture" id=3]
-[ext_resource path="res://Assets/UI/Fonts/SmallFontItalic.tres" type="DynamicFont" id=4]
-[ext_resource path="res://Assets/UI/Icons/Widgets/CityInfo/settlement.png" type="Texture" id=5]
-[ext_resource path="res://Assets/UI/Icons/Widgets/CityInfo/inhabitants.png" type="Texture" id=6]
-[ext_resource path="res://Assets/UI/Images/Background/Widgets/cityinfo_right.png" type="Texture" id=7]
+[ext_resource type="Script" path="res://Assets/UI/Scripts/CityInfo.gd" id="1"]
+[ext_resource type="Texture2D" uid="uid://b0gi4vdahasx6" path="res://Assets/UI/Images/Background/Widgets/cityinfo_left.png" id="2"]
+[ext_resource type="Texture2D" uid="uid://cnh4q3rem71rn" path="res://Assets/UI/Images/Background/Widgets/cityinfo_fill.png" id="3"]
+[ext_resource type="Theme" uid="uid://dvtkchntkj8xx" path="res://Assets/UI/Themes/ThemeOld.tres" id="3_i2chl"]
+[ext_resource type="FontFile" path="res://Assets/UI/Fonts/SmallFontItalic.tres" id="4"]
+[ext_resource type="Texture2D" uid="uid://3hepoko6w1v" path="res://Assets/UI/Icons/Widgets/CityInfo/settlement.png" id="5"]
+[ext_resource type="Texture2D" uid="uid://dry1ceb3p6yk1" path="res://Assets/UI/Icons/Widgets/CityInfo/inhabitants.png" id="6"]
+[ext_resource type="Texture2D" uid="uid://dja8u81e6ge3k" path="res://Assets/UI/Images/Background/Widgets/cityinfo_right.png" id="7"]
 
-[sub_resource type="StyleBoxTexture" id=1]
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_gstc8"]
 content_margin_left = 50.0
-content_margin_right = 40.0
-texture = ExtResource( 3 )
-region_rect = Rect2( 0, 0, 10, 29 )
+content_margin_right = 42.0
+texture = ExtResource("3")
 
-[sub_resource type="StyleBoxTexture" id=2]
-content_margin_left = 5.0
-content_margin_right = 5.0
-texture = ExtResource( 3 )
-region_rect = Rect2( 0, 0, 10, 29 )
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_miadq"]
+texture = ExtResource("3")
 
-[sub_resource type="Animation" id=3]
+[sub_resource type="Animation" id="3"]
 resource_name = "fade_in"
 length = 0.3
 tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
 tracks/0/path = NodePath(".:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.3 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
 }
 
-[sub_resource type="Animation" id=4]
+[sub_resource type="Animation" id="4"]
 resource_name = "fade_out"
 length = 0.3
 tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
 tracks/0/path = NodePath(".:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.3 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_2jvw7"]
+_data = {
+"fade_in": SubResource("3"),
+"fade_out": SubResource("4")
 }
 
 [node name="CityInfo" type="HBoxContainer"]
-margin_right = 195.0
-margin_bottom = 29.0
-custom_constants/separation = 0
-script = ExtResource( 1 )
-__meta__ = {
-"_edit_lock_": true,
-"_edit_use_anchors_": false
-}
+offset_right = 195.0
+offset_bottom = 29.0
+theme_override_constants/separation = 0
+script = ExtResource("1")
 
 [node name="TextureRect" type="TextureRect" parent="."]
-margin_right = 6.0
-margin_bottom = 29.0
-texture = ExtResource( 2 )
+layout_mode = 2
+texture = ExtResource("2")
 
 [node name="SettlementName" type="Label" parent="."]
-margin_left = 6.0
-margin_right = 206.0
-margin_bottom = 29.0
-rect_min_size = Vector2( 200, 0 )
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
 size_flags_vertical = 5
-custom_colors/font_color = Color( 0.258824, 0.188235, 0.0509804, 1 )
-custom_fonts/font = ExtResource( 4 )
-custom_styles/normal = SubResource( 1 )
+theme = ExtResource("3_i2chl")
+theme_override_fonts/font = ExtResource("4")
+theme_override_font_sizes/font_size = 18
+theme_override_styles/normal = SubResource("StyleBoxTexture_gstc8")
 text = "Unknown Town"
-valign = 1
+vertical_alignment = 1
 
 [node name="FactionSettlement" type="TextureRect" parent="SettlementName"]
+layout_mode = 0
 anchor_top = 1.0
 anchor_bottom = 1.0
-margin_top = -40.0
-margin_right = 40.0
-texture = ExtResource( 5 )
-__meta__ = {
-"_edit_lock_": true,
-"_edit_use_anchors_": false
-}
+offset_top = -40.0
+offset_right = 40.0
+texture = ExtResource("5")
+metadata/_edit_lock_ = true
 
 [node name="TextureRect" type="TextureRect" parent="SettlementName"]
+layout_mode = 1
+anchors_preset = 3
 anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = -32.0
-margin_top = -36.0
-margin_right = 8.0
-margin_bottom = 4.0
-texture = ExtResource( 6 )
-__meta__ = {
-"_edit_lock_": true,
-"_edit_use_anchors_": false
-}
+offset_left = -37.0
+offset_top = -36.0
+offset_right = 3.0
+offset_bottom = 4.0
+grow_horizontal = 0
+grow_vertical = 0
+texture = ExtResource("6")
+metadata/_edit_lock_ = true
 
 [node name="Population" type="Label" parent="."]
-margin_left = 206.0
-margin_right = 244.0
-margin_bottom = 29.0
+layout_mode = 2
 size_flags_vertical = 5
-custom_colors/font_color = Color( 0.258824, 0.188235, 0.0509804, 1 )
-custom_fonts/font = ExtResource( 4 )
-custom_styles/normal = SubResource( 2 )
+theme_override_styles/normal = SubResource("StyleBoxTexture_miadq")
 text = "9000"
-valign = 1
+vertical_alignment = 1
 
 [node name="TextureRect2" type="TextureRect" parent="."]
-margin_left = 244.0
-margin_right = 250.0
-margin_bottom = 29.0
-texture = ExtResource( 7 )
+layout_mode = 2
+texture = ExtResource("7")
 
 [node name="Timer" type="Timer" parent="."]
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/fade_in = SubResource( 3 )
-anims/fade_out = SubResource( 4 )
+libraries = {
+"": SubResource("AnimationLibrary_2jvw7")
+}
 
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]

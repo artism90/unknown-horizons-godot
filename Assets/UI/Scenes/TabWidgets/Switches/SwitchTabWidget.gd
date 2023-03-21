@@ -1,12 +1,13 @@
-tool
+@tool
 extends TextureButton
 class_name SwitchTabWidget
-# Base class for all widget switch handles.
 
-export(Texture) var texture_active
-onready var _texture_normal := texture_normal
+## Base class for all widget switch handles.
 
-onready var tab_container: TabContainer setget ,get_tab_container
+@export var texture_active: Texture2D
+@onready var _texture_normal := texture_normal
+
+@onready var tab_container: TabContainer : get = get_tab_container
 
 #func _ready() -> void:
 #	if not Engine.is_editor_hint():
@@ -16,15 +17,16 @@ onready var tab_container: TabContainer setget ,get_tab_container
 #
 #func _listen_to_other_switches() -> void:
 #	for sibling in get_parent().get_children():
-#		sibling.connect("tab_changed", self, "_on_SwitchTabWidget_tab_changed")
+#		sibling.tab_changed.connect(Callable(self, "_on_SwitchTabWidget_tab_changed"))
 
 func _draw() -> void:
-	if texture_normal:
-		rect_min_size = texture_normal.get_size()
-	else:
-		rect_min_size = rect_size
+#	if texture_normal:
+#		custom_minimum_size = texture_normal.get_size()
+#	else:
+#		custom_minimum_size = size
+	custom_minimum_size.y = 46
 
-	property_list_changed_notify()
+	notify_property_list_changed()
 
 func get_tab_container() -> TabContainer:
 	if owner is TabWidget:
@@ -33,8 +35,8 @@ func get_tab_container() -> TabContainer:
 
 			for switch in get_parent().get_children():
 				switch.tab_container = tab_container
-				if !tab_container.is_connected("tab_changed", switch, "_on_TabContainer_tab_changed"):
-					tab_container.connect("tab_changed", switch, "_on_TabContainer_tab_changed")
+				if !tab_container.tab_changed.is_connected(Callable(switch, "_on_TabContainer_tab_changed")):
+					tab_container.tab_changed.connect(Callable(switch, "_on_TabContainer_tab_changed"))
 
 	return tab_container
 

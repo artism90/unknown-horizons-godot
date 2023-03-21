@@ -1,4 +1,4 @@
-tool
+@tool
 extends TextureButton
 
 const BOOKMARK_LEFT = preload("res://Assets/UI/Images/Background/pickbelt_left.png")
@@ -9,8 +9,7 @@ const SIDES = [
 	BOOKMARK_RIGHT
 ]
 
-export(int, "Left", "Right") var side := 0 setget set_side
-
-func set_side(new_side):
-	side = new_side
-	texture_normal = SIDES[side]
+@export_enum("Left", "Right") var side := 0:
+	set(new_side):
+		side = new_side
+		texture_normal = SIDES[side]

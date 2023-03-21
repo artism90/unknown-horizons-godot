@@ -1,206 +1,119 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=19 format=3 uid="uid://l5j5r27xhkvb"]
 
-[ext_resource path="res://Assets/UI/Scenes/TabWidgets/ProductionWithRelatedBuildingsMenuTabWidget.tscn" type="PackedScene" id=1]
-[ext_resource path="res://Assets/UI/Scripts/FarmTabWidget.gd" type="Script" id=2]
-[ext_resource path="res://Assets/UI/Scenes/TabWidgets/Buttons/ActionButtons/Buttons/BuildButtons/BuildPigstyButton.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Assets/UI/Scenes/TabWidgets/ViewComponents/ProductionChain.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Assets/UI/Scenes/TabWidgets/Buttons/ActionButtons/Buttons/BuildButtons/BuildAlveariesButton.tscn" type="PackedScene" id=6]
-[ext_resource path="res://Assets/UI/Scenes/TabWidgets/Buttons/ActionButtons/Buttons/BuildButtons/BuildSpiceFieldButton.tscn" type="PackedScene" id=7]
-[ext_resource path="res://Assets/UI/Scenes/TabWidgets/Buttons/ActionButtons/Buttons/BuildButtons/BuildPastureButton.tscn" type="PackedScene" id=8]
-[ext_resource path="res://Assets/UI/Scenes/TabWidgets/Buttons/ActionButtons/Buttons/BuildButtons/BuildCattleRunButton.tscn" type="PackedScene" id=9]
-[ext_resource path="res://Assets/UI/Scenes/TabWidgets/Buttons/ActionButtons/Buttons/BuildButtons/BuildPotatoFieldButton.tscn" type="PackedScene" id=10]
-[ext_resource path="res://Assets/UI/Scenes/TabWidgets/Buttons/ActionButtons/Buttons/BuildButtons/BuildHerbaryButton.tscn" type="PackedScene" id=11]
-[ext_resource path="res://Assets/UI/Scenes/TabWidgets/Buttons/ActionButtons/Buttons/BuildButtons/BuildCornFieldButton.tscn" type="PackedScene" id=12]
-[ext_resource path="res://Assets/UI/Scenes/TabWidgets/Buttons/ActionButtons/Buttons/BuildButtons/BuildSugarFieldButton.tscn" type="PackedScene" id=13]
-[ext_resource path="res://Assets/UI/Scenes/TabWidgets/Buttons/ActionButtons/Buttons/BuildButtons/BuildHopFieldButton.tscn" type="PackedScene" id=14]
-[ext_resource path="res://Assets/UI/Scenes/TabWidgets/Buttons/ActionButtons/Buttons/BuildButtons/BuildVineyardButton.tscn" type="PackedScene" id=15]
-[ext_resource path="res://Assets/UI/Scenes/TabWidgets/Buttons/ActionButtons/Buttons/BuildButtons/BuildCocoaFieldButton.tscn" type="PackedScene" id=16]
-[ext_resource path="res://Assets/UI/Scenes/TabWidgets/Buttons/ActionButtons/Buttons/BuildButtons/BuildTobaccoFieldButton.tscn" type="PackedScene" id=17]
+[ext_resource type="PackedScene" path="res://Assets/UI/Scenes/TabWidgets/ProductionWithRelatedBuildingsMenuTabWidget.tscn" id="1"]
+[ext_resource type="Script" path="res://Assets/UI/Scripts/FarmTabWidget.gd" id="2"]
+[ext_resource type="Texture2D" uid="uid://budf74yum8w6e" path="res://Assets/UI/Images/TabWidget/main_bg_fill.png" id="3_1thbe"]
+[ext_resource type="PackedScene" uid="uid://omcqf4pqfavh" path="res://Assets/UI/Scenes/TabWidgets/Buttons/ActionButtons/Buttons/BuildButtons/BuildPigstyButton.tscn" id="4"]
+[ext_resource type="PackedScene" uid="uid://dt0mefdbvpvnd" path="res://Assets/UI/Scenes/TabWidgets/ViewComponents/ProductionChain.tscn" id="5"]
+[ext_resource type="FontFile" uid="uid://b132ikq6ayfyj" path="res://External/Fonts/LinLibertineC.ttf" id="5_tax6m"]
+[ext_resource type="PackedScene" uid="uid://dqbghx28s0a46" path="res://Assets/UI/Scenes/TabWidgets/Buttons/ActionButtons/Buttons/BuildButtons/BuildAlveariesButton.tscn" id="6"]
+[ext_resource type="PackedScene" uid="uid://rn340j2yrkex" path="res://Assets/UI/Scenes/TabWidgets/Buttons/ActionButtons/Buttons/BuildButtons/BuildSpiceFieldButton.tscn" id="7"]
+[ext_resource type="PackedScene" uid="uid://bq6wr8orf7n3t" path="res://Assets/UI/Scenes/TabWidgets/Buttons/ActionButtons/Buttons/BuildButtons/BuildPastureButton.tscn" id="8"]
+[ext_resource type="PackedScene" uid="uid://e72rw7xgbw2n" path="res://Assets/UI/Scenes/TabWidgets/Buttons/ActionButtons/Buttons/BuildButtons/BuildCattleRunButton.tscn" id="9"]
+[ext_resource type="PackedScene" uid="uid://d08h32gw5pi0f" path="res://Assets/UI/Scenes/TabWidgets/Buttons/ActionButtons/Buttons/BuildButtons/BuildPotatoFieldButton.tscn" id="10"]
+[ext_resource type="PackedScene" uid="uid://dp62516d2wgyl" path="res://Assets/UI/Scenes/TabWidgets/Buttons/ActionButtons/Buttons/BuildButtons/BuildHerbaryButton.tscn" id="11"]
+[ext_resource type="PackedScene" uid="uid://domsvnsw0bjv7" path="res://Assets/UI/Scenes/TabWidgets/Buttons/ActionButtons/Buttons/BuildButtons/BuildCornFieldButton.tscn" id="12"]
+[ext_resource type="PackedScene" uid="uid://b2jqq03byevwr" path="res://Assets/UI/Scenes/TabWidgets/Buttons/ActionButtons/Buttons/BuildButtons/BuildSugarFieldButton.tscn" id="13"]
+[ext_resource type="PackedScene" uid="uid://b16tf3jt8prhu" path="res://Assets/UI/Scenes/TabWidgets/Buttons/ActionButtons/Buttons/BuildButtons/BuildHopFieldButton.tscn" id="14"]
+[ext_resource type="PackedScene" uid="uid://c3b1var3b5rt4" path="res://Assets/UI/Scenes/TabWidgets/Buttons/ActionButtons/Buttons/BuildButtons/BuildVineyardButton.tscn" id="15"]
+[ext_resource type="PackedScene" uid="uid://dity44b5d5mqn" path="res://Assets/UI/Scenes/TabWidgets/Buttons/ActionButtons/Buttons/BuildButtons/BuildCocoaFieldButton.tscn" id="16"]
+[ext_resource type="PackedScene" uid="uid://cn8gvrchgk4ty" path="res://Assets/UI/Scenes/TabWidgets/Buttons/ActionButtons/Buttons/BuildButtons/BuildTobaccoFieldButton.tscn" id="17"]
 
-[node name="FarmTabWidget" instance=ExtResource( 1 )]
-script = ExtResource( 2 )
+[node name="FarmTabWidget" instance=ExtResource("1")]
+script = ExtResource("2")
+
+[node name="TextureRect" parent="WidgetDetail" index="0"]
+custom_minimum_size = Vector2(0, 60)
 
 [node name="Body" parent="WidgetDetail" index="1"]
-margin_bottom = 251.0
-rect_min_size = Vector2( 0, 191 )
+custom_minimum_size = Vector2(0, 191)
+size_flags_vertical = 1
+mouse_filter = 1
+texture = ExtResource("3_1thbe")
+stretch_mode = 1
+
+[node name="RelatedSwitchTabWidget" parent="WidgetDetail/Body/TabSwitches" index="1"]
+layout_mode = 2
 
 [node name="LabelEx" parent="WidgetDetail/Body/TabContainer/VBoxContainer" index="0"]
 text = "Farm"
 
 [node name="ProductionBasicInfo" parent="WidgetDetail/Body/TabContainer/VBoxContainer" index="2"]
-margin_bottom = 81.0
-custom_constants/margin_top = 10
-custom_constants/margin_left = 25
-custom_constants/margin_bottom = 10
+layout_mode = 2
 
-[node name="ProductionChain" parent="WidgetDetail/Body/TabContainer/VBoxContainer" index="3" instance=ExtResource( 5 )]
-margin_top = 85.0
-margin_bottom = 136.0
-rect_min_size = Vector2( 200, 51 )
+[node name="ProductionChain" parent="WidgetDetail/Body/TabContainer/VBoxContainer" index="3" instance=ExtResource("5")]
+layout_mode = 2
 
-[node name="VBoxContainer" parent="WidgetDetail/Body/TabContainer/VBoxContainer/ProductionChain/MarginContainer" index="0"]
-margin_bottom = 51.0
+[node name="PauseProductionButton" parent="WidgetDetail/Body/TabContainer/VBoxContainer/ProductionChain/MarginContainer/VBoxContainer/MiddleSection/Control" index="2"]
+grow_horizontal = 1
+grow_vertical = 1
 
-[node name="TopSection" parent="WidgetDetail/Body/TabContainer/VBoxContainer/ProductionChain/MarginContainer/VBoxContainer" index="0"]
-visible = false
-
-[node name="MiddleSection" parent="WidgetDetail/Body/TabContainer/VBoxContainer/ProductionChain/MarginContainer/VBoxContainer" index="1"]
-margin_top = 0.0
-margin_bottom = 51.0
-
-[node name="BottomSection" parent="WidgetDetail/Body/TabContainer/VBoxContainer/ProductionChain/MarginContainer/VBoxContainer" index="2"]
-visible = false
-
-[node name="ProductionChain2" parent="WidgetDetail/Body/TabContainer/VBoxContainer" index="4" instance=ExtResource( 5 )]
-margin_top = 140.0
-margin_bottom = 301.0
+[node name="ProductionChain2" parent="WidgetDetail/Body/TabContainer/VBoxContainer" index="4" instance=ExtResource("5")]
+custom_minimum_size = Vector2(200, 165)
+layout_mode = 2
 number_inputs = 2
 
+[node name="TopSection" parent="WidgetDetail/Body/TabContainer/VBoxContainer/ProductionChain2/MarginContainer/VBoxContainer" index="0"]
+visible = true
+
 [node name="InputTwo" parent="WidgetDetail/Body/TabContainer/VBoxContainer/ProductionChain2/MarginContainer/VBoxContainer/MiddleSection" index="0"]
-modulate = Color( 1, 1, 1, 0 )
+modulate = Color(1, 1, 1, 0)
 
 [node name="ArrowStart" parent="WidgetDetail/Body/TabContainer/VBoxContainer/ProductionChain2/MarginContainer/VBoxContainer/MiddleSection/Control" index="0"]
 visible = false
 
-[node name="MarginContainer" parent="WidgetDetail/Body/TabContainer/BuildRelatedBuildings" index="2"]
-margin_bottom = 239.0
+[node name="PauseProductionButton" parent="WidgetDetail/Body/TabContainer/VBoxContainer/ProductionChain2/MarginContainer/VBoxContainer/MiddleSection/Control" index="2"]
+grow_horizontal = 1
+grow_vertical = 1
 
-[node name="GridContainer" parent="WidgetDetail/Body/TabContainer/BuildRelatedBuildings/MarginContainer" index="0"]
-margin_bottom = 196.0
+[node name="BottomSection" parent="WidgetDetail/Body/TabContainer/VBoxContainer/ProductionChain2/MarginContainer/VBoxContainer" index="2"]
+visible = true
 
-[node name="BuildPastureButton" parent="WidgetDetail/Body/TabContainer/BuildRelatedBuildings/MarginContainer/GridContainer" index="0" instance=ExtResource( 8 )]
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_left = 0.0
-margin_top = 0.0
-margin_right = 46.0
-margin_bottom = 46.0
+[node name="BuildRelatedBuildings" parent="WidgetDetail/Body/TabContainer" index="2"]
+layout_mode = 2
 
-[node name="BuildPotatoFieldButton" parent="WidgetDetail/Body/TabContainer/BuildRelatedBuildings/MarginContainer/GridContainer" index="1" instance=ExtResource( 10 )]
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_left = 53.0
-margin_top = 0.0
-margin_right = 99.0
-margin_bottom = 46.0
+[node name="LabelEx" parent="WidgetDetail/Body/TabContainer/BuildRelatedBuildings" index="0"]
+theme_override_fonts/font = ExtResource("5_tax6m")
+theme_override_font_sizes/font_size = 16
 
-[node name="BuildSugarFieldButton" parent="WidgetDetail/Body/TabContainer/BuildRelatedBuildings/MarginContainer/GridContainer" index="2" instance=ExtResource( 13 )]
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_left = 106.0
-margin_top = 0.0
-margin_right = 152.0
-margin_bottom = 46.0
+[node name="BuildPastureButton" parent="WidgetDetail/Body/TabContainer/BuildRelatedBuildings/MarginContainer/GridContainer" index="0" instance=ExtResource("8")]
+layout_mode = 2
 
-[node name="BuildTobaccoFieldButton" parent="WidgetDetail/Body/TabContainer/BuildRelatedBuildings/MarginContainer/GridContainer" index="3" instance=ExtResource( 17 )]
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_left = 159.0
-margin_top = 0.0
-margin_right = 205.0
-margin_bottom = 46.0
+[node name="BuildPotatoFieldButton" parent="WidgetDetail/Body/TabContainer/BuildRelatedBuildings/MarginContainer/GridContainer" index="1" instance=ExtResource("10")]
+layout_mode = 2
 
-[node name="BuildCattleRunButton" parent="WidgetDetail/Body/TabContainer/BuildRelatedBuildings/MarginContainer/GridContainer" index="4" instance=ExtResource( 9 )]
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_left = 0.0
-margin_top = 50.0
-margin_right = 46.0
-margin_bottom = 96.0
+[node name="BuildSugarFieldButton" parent="WidgetDetail/Body/TabContainer/BuildRelatedBuildings/MarginContainer/GridContainer" index="2" instance=ExtResource("13")]
+layout_mode = 2
 
-[node name="BuildPigstyButton" parent="WidgetDetail/Body/TabContainer/BuildRelatedBuildings/MarginContainer/GridContainer" index="5" instance=ExtResource( 4 )]
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_left = 53.0
-margin_top = 50.0
-margin_right = 99.0
-margin_bottom = 96.0
+[node name="BuildTobaccoFieldButton" parent="WidgetDetail/Body/TabContainer/BuildRelatedBuildings/MarginContainer/GridContainer" index="3" instance=ExtResource("17")]
+layout_mode = 2
 
-[node name="BuildHerbaryButton" parent="WidgetDetail/Body/TabContainer/BuildRelatedBuildings/MarginContainer/GridContainer" index="6" instance=ExtResource( 11 )]
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_left = 106.0
-margin_top = 50.0
-margin_right = 152.0
-margin_bottom = 96.0
+[node name="BuildCattleRunButton" parent="WidgetDetail/Body/TabContainer/BuildRelatedBuildings/MarginContainer/GridContainer" index="4" instance=ExtResource("9")]
+layout_mode = 2
 
-[node name="BuildSpiceFieldButton" parent="WidgetDetail/Body/TabContainer/BuildRelatedBuildings/MarginContainer/GridContainer" index="7" instance=ExtResource( 7 )]
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_left = 159.0
-margin_top = 50.0
-margin_right = 205.0
-margin_bottom = 96.0
+[node name="BuildPigstyButton" parent="WidgetDetail/Body/TabContainer/BuildRelatedBuildings/MarginContainer/GridContainer" index="5" instance=ExtResource("4")]
+layout_mode = 2
 
-[node name="BuildCornFieldButton" parent="WidgetDetail/Body/TabContainer/BuildRelatedBuildings/MarginContainer/GridContainer" index="8" instance=ExtResource( 12 )]
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_left = 0.0
-margin_top = 100.0
-margin_right = 46.0
-margin_bottom = 146.0
+[node name="BuildHerbaryButton" parent="WidgetDetail/Body/TabContainer/BuildRelatedBuildings/MarginContainer/GridContainer" index="6" instance=ExtResource("11")]
+layout_mode = 2
 
-[node name="BuildCocoaFieldButton" parent="WidgetDetail/Body/TabContainer/BuildRelatedBuildings/MarginContainer/GridContainer" index="9" instance=ExtResource( 16 )]
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_left = 53.0
-margin_top = 100.0
-margin_right = 99.0
-margin_bottom = 146.0
+[node name="BuildSpiceFieldButton" parent="WidgetDetail/Body/TabContainer/BuildRelatedBuildings/MarginContainer/GridContainer" index="7" instance=ExtResource("7")]
+layout_mode = 2
 
-[node name="BuildVineyardButton" parent="WidgetDetail/Body/TabContainer/BuildRelatedBuildings/MarginContainer/GridContainer" index="10" instance=ExtResource( 15 )]
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_left = 106.0
-margin_top = 100.0
-margin_right = 152.0
-margin_bottom = 146.0
+[node name="BuildCornFieldButton" parent="WidgetDetail/Body/TabContainer/BuildRelatedBuildings/MarginContainer/GridContainer" index="8" instance=ExtResource("12")]
+layout_mode = 2
 
-[node name="BuildAlveariesButton" parent="WidgetDetail/Body/TabContainer/BuildRelatedBuildings/MarginContainer/GridContainer" index="11" instance=ExtResource( 6 )]
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_left = 159.0
-margin_top = 100.0
-margin_right = 205.0
-margin_bottom = 146.0
+[node name="BuildCocoaFieldButton" parent="WidgetDetail/Body/TabContainer/BuildRelatedBuildings/MarginContainer/GridContainer" index="9" instance=ExtResource("16")]
+layout_mode = 2
 
-[node name="BuildHopFieldButton" parent="WidgetDetail/Body/TabContainer/BuildRelatedBuildings/MarginContainer/GridContainer" index="12" instance=ExtResource( 14 )]
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_left = 0.0
-margin_top = 150.0
-margin_right = 46.0
-margin_bottom = 196.0
+[node name="BuildVineyardButton" parent="WidgetDetail/Body/TabContainer/BuildRelatedBuildings/MarginContainer/GridContainer" index="10" instance=ExtResource("15")]
+layout_mode = 2
 
-[node name="TextureRect2" parent="WidgetDetail" index="2"]
-margin_top = 251.0
-margin_bottom = 339.0
+[node name="BuildAlveariesButton" parent="WidgetDetail/Body/TabContainer/BuildRelatedBuildings/MarginContainer/GridContainer" index="11" instance=ExtResource("6")]
+layout_mode = 2
+
+[node name="BuildHopFieldButton" parent="WidgetDetail/Body/TabContainer/BuildRelatedBuildings/MarginContainer/GridContainer" index="12" instance=ExtResource("14")]
+layout_mode = 2
 
 [editable path="WidgetDetail/Body/TabContainer/VBoxContainer/ProductionChain"]
 [editable path="WidgetDetail/Body/TabContainer/VBoxContainer/ProductionChain2"]

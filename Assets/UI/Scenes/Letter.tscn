@@ -1,52 +1,41 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=7 format=3 uid="uid://dhijq260rx2qh"]
 
-[ext_resource path="res://Assets/UI/Images/Background/notice350.png" type="Texture" id=1]
-[ext_resource path="res://Assets/UI/Scenes/Labels/MediumLabelBoldItalic.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Assets/UI/Scenes/Buttons/OKButton.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Assets/UI/Scripts/Letter.gd" type="Script" id=4]
-[ext_resource path="res://Assets/UI/Scenes/Labels/MediumLabelBoldItalicCentered.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Assets/UI/Themes/Theme.tres" type="Theme" id=6]
-[ext_resource path="res://Assets/UI/Scripts/LabelEx.gd" type="Script" id=7]
+[ext_resource type="Texture2D" uid="uid://d01nnvkwqvnxv" path="res://Assets/UI/Images/Background/notice350.png" id="1"]
+[ext_resource type="PackedScene" path="res://Assets/UI/Scenes/Labels/MediumLabelBoldItalic.tscn" id="2"]
+[ext_resource type="PackedScene" path="res://Assets/UI/Scenes/Buttons/OKButton.tscn" id="3"]
+[ext_resource type="Script" path="res://Assets/UI/Scripts/Letter.gd" id="4"]
+[ext_resource type="FontFile" path="res://Assets/UI/Fonts/SmallFont.tres" id="4_141ln"]
+[ext_resource type="PackedScene" uid="uid://b34xk4pjvbgeg" path="res://Assets/UI/Scenes/Labels/MediumLabelBoldItalicCentered.tscn" id="5"]
 
 [node name="Letter" type="TextureRect"]
+anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -284.5
-margin_top = -175.0
-margin_right = 284.5
-margin_bottom = 175.0
-texture = ExtResource( 1 )
-script = ExtResource( 4 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
+offset_left = -284.5
+offset_top = -175.0
+offset_right = 284.5
+offset_bottom = 175.0
+texture = ExtResource("1")
+script = ExtResource("4")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 0
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 20.0
-margin_top = 45.0
-margin_right = -30.0
-margin_bottom = -20.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
+offset_left = 20.0
+offset_top = 45.0
+offset_right = -30.0
+offset_bottom = -20.0
 
-[node name="MediumLabelBoldItalic" parent="VBoxContainer" instance=ExtResource( 2 )]
-margin_right = 519.0
-margin_bottom = 21.0
-size_flags_horizontal = 3
-size_flags_vertical = 1
-theme = ExtResource( 6 )
+[node name="MediumLabelBoldItalic" parent="VBoxContainer" instance=ExtResource("2")]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_141ln")
 text = "Dear Unknown Traveller,"
-script = ExtResource( 7 )
 
-[node name="MediumLabelBoldItalicCentered" parent="VBoxContainer" instance=ExtResource( 5 )]
-margin_top = 70.0
-margin_right = 519.0
-margin_bottom = 196.0
+[node name="MediumLabelBoldItalicCentered" parent="VBoxContainer" instance=ExtResource("5")]
+layout_mode = 2
 size_flags_vertical = 6
 text = "Unknown Opponent has sent you a message!
 
@@ -55,10 +44,8 @@ Violets are blue,
 Bugs suck,
 And so do you."
 
-[node name="OKButton" parent="VBoxContainer" instance=ExtResource( 3 )]
-margin_left = 485.0
-margin_top = 245.0
-margin_right = 519.0
-margin_bottom = 285.0
+[node name="OKButton" parent="VBoxContainer" instance=ExtResource("3")]
+layout_mode = 2
 size_flags_vertical = 8
+
 [connection signal="pressed" from="VBoxContainer/OKButton" to="." method="_on_OKButton_pressed"]

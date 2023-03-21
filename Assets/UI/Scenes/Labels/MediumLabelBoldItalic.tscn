@@ -1,16 +1,13 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=4 format=3 uid="uid://5egtqi4jjhp"]
 
-[ext_resource path="res://Assets/UI/Scenes/Labels/MediumLabelBold.tscn" type="PackedScene" id=1]
-[ext_resource path="res://Assets/UI/Fonts/MediumFontBoldItalic.tres" type="DynamicFont" id=2]
-[ext_resource path="res://Assets/UI/Themes/Theme.tres" type="Theme" id=3]
-[ext_resource path="res://Assets/UI/Scripts/LabelEx.gd" type="Script" id=4]
+[ext_resource type="PackedScene" uid="uid://ba8bh8sfudph3" path="res://Assets/UI/Scenes/Labels/MediumLabelBold.tscn" id="1"]
+[ext_resource type="Theme" uid="uid://co3dg0mie4i6b" path="res://Assets/UI/Themes/ThemeOld.tres" id="3"]
+[ext_resource type="FontFile" uid="uid://dgr8rlsjjeh22" path="res://External/Fonts/LinLibertineBI.ttf" id="3_112wl"]
 
-[node name="MediumLabelBoldItalic" instance=ExtResource( 1 )]
-margin_right = 104.0
-margin_bottom = 19.0
-size_flags_horizontal = 3
-size_flags_vertical = 1
-theme = ExtResource( 3 )
-custom_fonts/font = ExtResource( 2 )
-text = "Unknown Label"
-script = ExtResource( 4 )
+[node name="MediumLabelBoldItalic" instance=ExtResource("1")]
+offset_right = 127.0
+offset_bottom = 22.0
+theme = ExtResource("3")
+theme_override_fonts/font = ExtResource("3_112wl")
+theme_override_font_sizes/font_size = 18
+font_style = 13

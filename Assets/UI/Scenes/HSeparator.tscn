@@ -1,11 +1,8 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=2 format=3 uid="uid://bchjmu1x3ostv"]
 
-[ext_resource path="res://Assets/UI/Themes/Theme.tres" type="Theme" id=1]
+[ext_resource type="Theme" uid="uid://co3dg0mie4i6b" path="res://Assets/UI/Themes/ThemeOld.tres" id="1"]
 
 [node name="HSeparator" type="HSeparator"]
-margin_right = 220.0
-margin_bottom = 4.0
-theme = ExtResource( 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
+offset_right = 220.0
+offset_bottom = 4.0
+theme = ExtResource("1")

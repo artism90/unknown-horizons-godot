@@ -1,4 +1,4 @@
-tool
+@tool
 extends BookMenu
 class_name OptionsUI
 
@@ -22,29 +22,31 @@ const SCREEN_RESOLUTIONS = [
 	"3840x2160",
 ]
 
-onready var settings = {
-	"AutosaveInterval": find_node("AutosaveInterval") as HSliderEx,
-	"NumberOfAutosaves": find_node("NumberOfAutosaves") as HSliderEx,
-	"NumberOfQuicksaves": find_node("NumberOfQuicksaves") as HSliderEx,
+@onready var settings = {
+	"AutosaveInterval": find_child("AutosaveInterval") as HSliderEx,
+	"NumberOfAutosaves": find_child("NumberOfAutosaves") as HSliderEx,
+	"NumberOfQuicksaves": find_child("NumberOfQuicksaves") as HSliderEx,
 
-	"PlayerName": find_node("PlayerName") as LineEditEx,
-	"GameLanguage": find_node("GameLanguage") as OptionButtonEx,
+	"PlayerName": find_child("PlayerName") as LineEditEx,
+	"GameLanguage": find_child("GameLanguage") as OptionButtonEx,
 
-	"ScrollAtMapEdge": find_node("ScrollAtMapEdge") as CheckBoxEx,
-	"CursorCenteredZoom": find_node("CursorCenteredZoom") as CheckBoxEx,
-	"MiddleMouseButtonPan": find_node("MiddleMouseButtonPan") as CheckBoxEx,
-	"MouseSensitivity": find_node("MouseSensitivity") as HSliderEx,
+	"ScrollAtMapEdge": find_child("ScrollAtMapEdge") as CheckBoxEx,
+	"CursorCenteredZoom": find_child("CursorCenteredZoom") as CheckBoxEx,
+	"MiddleMouseButtonPan": find_child("MiddleMouseButtonPan") as CheckBoxEx,
+	"MouseSensitivity": find_child("MouseSensitivity") as HSliderEx,
 
-	"WindowMode": find_node("WindowMode") as OptionButtonEx,
-	"ScreenResolution": find_node("ScreenResolution") as OptionButtonEx,
+	"WindowMode": find_child("WindowMode") as OptionButtonEx,
+	"ScreenResolution": find_child("ScreenResolution") as OptionButtonEx,
 
-	"MasterVolume": find_node("MasterVolume") as HSliderEx,
-	"MusicVolume": find_node("MusicVolume") as HSliderEx,
-	"EffectsVolume": find_node("EffectsVolume") as HSliderEx,
-	"VoiceVolume": find_node("VoiceVolume") as HSliderEx,
+	"MasterVolume": find_child("MasterVolume") as HSliderEx,
+	"MusicVolume": find_child("MusicVolume") as HSliderEx,
+	"EffectsVolume": find_child("EffectsVolume") as HSliderEx,
+	"VoiceVolume": find_child("VoiceVolume") as HSliderEx,
 }
 
 func _ready() -> void:
+	super()
+
 	if Engine.is_editor_hint():
 		return
 
@@ -71,35 +73,35 @@ func _ready() -> void:
 	# Window mode
 	settings["WindowMode"].options = Global.WINDOW_MODES.values()
 	settings["WindowMode"].selected = Config.window_mode
-	settings["WindowMode"].connect("item_selected", self, "_on_WindowMode_item_selected")
-	settings["WindowMode"].emit_signal("item_selected", Config.window_mode)
+	settings["WindowMode"].item_selected.connect(Callable(self, "_on_WindowMode_item_selected"))
+	settings["WindowMode"].item_selected.emit(Config.window_mode)
 
 	# Populate with available resolutions
 	settings["ScreenResolution"].options = SCREEN_RESOLUTIONS
 	for screen_resolution_index in SCREEN_RESOLUTIONS.size():
 		if Config.screen_resolution == SCREEN_RESOLUTIONS[screen_resolution_index]:
 			settings["ScreenResolution"].selected = screen_resolution_index
-	settings["ScreenResolution"].connect("item_selected", self, "_on_ScreenResolution_item_selected")
+	settings["ScreenResolution"].item_selected.connect(Callable(self, "_on_ScreenResolution_item_selected"))
 
 	# Audio parameters
 	settings["MasterVolume"].value = Config.master_volume
-	settings["MasterVolume"].connect("value_changed", self, "_on_MasterVolume_value_changed")
+	settings["MasterVolume"].value_changed.connect(Callable(self, "_on_MasterVolume_value_changed"))
 
 	settings["MusicVolume"].value = Config.music_volume
-	settings["MusicVolume"].connect("value_changed", self, "_on_MusicVolume_value_changed")
+	settings["MusicVolume"].value_changed.connect(Callable(self, "_on_MusicVolume_value_changed"))
 
 	settings["EffectsVolume"].value = Config.effects_volume
-	settings["EffectsVolume"].connect("value_changed", self, "_on_EffectsVolume_value_changed")
+	settings["EffectsVolume"].value_changed.connect(Callable(self, "_on_EffectsVolume_value_changed"))
 
 	settings["VoiceVolume"].value = Config.voice_volume
-	settings["VoiceVolume"].connect("value_changed", self, "_on_VoiceVolume_value_changed")
+	settings["VoiceVolume"].value_changed.connect(Callable(self, "_on_VoiceVolume_value_changed"))
 
 func populate_dropdown(dropdown: OptionButton, items: Dictionary) -> void:
 	for item in items.values():
 		dropdown.add_item(item)
 
 func _on_WindowMode_item_selected(index) -> void:
-	OS.window_fullscreen = index
+	get_window().mode = Window.MODE_EXCLUSIVE_FULLSCREEN if (index) else Window.MODE_WINDOWED
 	settings["ScreenResolution"].get_node("OptionButton").disabled = not index == Global.WindowMode.WINDOWED
 	Global.set_screen_resolution(Config.screen_resolution)
 
@@ -124,19 +126,19 @@ func _on_DeleteButton_pressed() -> void:
 	Config.reset_to_factory_settings()
 	_ready()
 
-	._on_DeleteButton_pressed()
+	super()
 
 func _on_CancelButton_pressed() -> void:
 	Config.load_config()
 
 	# Revert temporary screen resolution change
 	Global.set_screen_resolution(Config.screen_resolution)
-	OS.window_fullscreen = Config.window_mode
+	get_window().mode = Window.MODE_EXCLUSIVE_FULLSCREEN if (Config.window_mode) else Window.MODE_WINDOWED
 
 	# revert volume changes
 	_ready()
 
-	._on_CancelButton_pressed()
+	super()
 
 func _on_OKButton_pressed() -> void:
 	Config.autosave_interval = settings["AutosaveInterval"].value
@@ -163,4 +165,4 @@ func _on_OKButton_pressed() -> void:
 	if saved != OK:
 		print("Could not save config!")
 
-	._on_OKButton_pressed()
+	super()

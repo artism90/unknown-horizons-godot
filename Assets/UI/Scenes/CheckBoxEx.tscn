@@ -1,33 +1,28 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=5 format=3 uid="uid://b72b2qwp7wbtu"]
 
-[ext_resource path="res://Assets/UI/Fonts/SmallFontItalic.tres" type="DynamicFont" id=1]
-[ext_resource path="res://Assets/UI/Scripts/CheckBoxEx.gd" type="Script" id=2]
-[ext_resource path="res://Assets/UI/Themes/Theme.tres" type="Theme" id=3]
-[ext_resource path="res://Assets/UI/Scenes/Labels/LabelEx.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Assets/UI/Scripts/CheckBox.gd" type="Script" id=5]
+[ext_resource type="Script" path="res://Assets/UI/Scripts/CheckBoxEx.gd" id="2"]
+[ext_resource type="FontFile" uid="uid://sdfro4oswrtf" path="res://External/Fonts/LinLibertineI.ttf" id="3_76ept"]
+[ext_resource type="PackedScene" uid="uid://cbnxdcqt458h3" path="res://Assets/UI/Scenes/Labels/LabelEx.tscn" id="4"]
+[ext_resource type="Script" path="res://Assets/UI/Scripts/CheckBox.gd" id="5"]
 
 [node name="CheckBoxEx" type="HBoxContainer"]
-margin_right = 154.0
-margin_bottom = 20.0
-theme = ExtResource( 3 )
-script = ExtResource( 2 )
+offset_right = 154.0
+offset_bottom = 20.0
+script = ExtResource("2")
 
-[node name="LabelEx" parent="." instance=ExtResource( 4 )]
-margin_right = 130.0
-margin_bottom = 20.0
-custom_fonts/font = ExtResource( 1 )
+[node name="LabelEx" parent="." instance=ExtResource("4")]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_76ept")
+theme_override_font_sizes/font_size = 16
 text = "Unknown CheckBox:"
-autowrap = false
-font_style = 8
+autowrap_mode = 0
+font_style = 9
 
 [node name="CheckBox" type="CheckBox" parent="."]
-margin_left = 134.0
-margin_right = 154.0
-margin_bottom = 20.0
-mouse_filter = 2
+layout_mode = 2
 size_flags_horizontal = 10
-theme = ExtResource( 3 )
-script = ExtResource( 5 )
+mouse_filter = 2
+script = ExtResource("5")
 
 [connection signal="gui_input" from="." to="." method="_on_CheckBoxEx_gui_input"]
 [connection signal="toggled" from="CheckBox" to="." method="_on_CheckBox_toggled"]

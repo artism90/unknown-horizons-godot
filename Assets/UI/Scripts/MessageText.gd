@@ -1,8 +1,10 @@
-tool
+@tool
 extends Label
-class_name MessageText
+#class_name MessageText
 
-export(String, MULTILINE) var message_text setget set_message_text
+## ❗TODO: Review code for Godot 4. Until then, keep unused.
+
+@export_multiline var message_text: String : set = set_message_text
 
 func _ready() -> void:
 	set_message_text(message_text)
@@ -19,7 +21,7 @@ func set_message_text(new_message_text: String) -> void:
 	if get_line_count() > 2:
 		# Make font unique so it won't mistakenly update other instances
 		font = font.duplicate(true)
-		add_font_override("font", font)
+		add_theme_font_override("font", font)
 		font.set("size", 15)
 	else:
 		font.set("size", 17)

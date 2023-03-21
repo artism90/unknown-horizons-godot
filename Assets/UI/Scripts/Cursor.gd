@@ -22,7 +22,7 @@ var cursors = {
 	CursorType.CURSOR_TEAR: CURSOR_TEAR
 }
 
-var cursor: int = CursorType.CURSOR_DEFAULT setget set_cursor, get_cursor
+var cursor: int = CursorType.CURSOR_DEFAULT : get = get_cursor, set = set_cursor
 
 func _ready() -> void:
 	self.cursor = CursorType.CURSOR_DEFAULT

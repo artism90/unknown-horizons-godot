@@ -1,6 +1,6 @@
 extends ItemList
 
-# TODO: Make this dynamic
+## [b]❗TODO: Make this dynamic.[/b]
 var maps = {
 	"WorldDev": preload("res://Assets/World/WorldDev.tscn"),
 	"World": preload("res://Assets/World/World.tscn"),

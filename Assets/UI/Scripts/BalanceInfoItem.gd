@@ -1,4 +1,4 @@
-tool
+@tool
 extends HBoxContainer
 
 enum BalanceType {
@@ -25,21 +25,21 @@ const BALANCE_TYPES = [
 	preload("res://Assets/UI/Images/ResbarStats/weapons_icon.png")
 ]
 
-export(BalanceType) var balance_type setget set_balance_type
-export(int) var balance_value setget set_balance_value
+@export var balance_type: BalanceType : set = set_balance_type
+@export var balance_value: int : set = set_balance_value
 
-onready var texture_rect = $TextureRect
-onready var label = $LabelEx
+@onready var texture_rect = $TextureRect
+@onready var label = $LabelEx
 
 func set_balance_type(new_balance_type: int) -> void:
-	if not is_inside_tree(): yield(self, "ready")
+	if not is_inside_tree(): await self.ready
 	if texture_rect == null: texture_rect = $TextureRect
 
 	balance_type = new_balance_type
 	texture_rect.texture = BALANCE_TYPES[balance_type]
 
 func set_balance_value(new_balance_value: int) -> void:
-	if not is_inside_tree(): yield(self, "ready")
+	if not is_inside_tree(): await self.ready
 	if label == null: label = $LabelEx
 
 	balance_value = new_balance_value

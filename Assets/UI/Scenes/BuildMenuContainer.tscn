@@ -1,14 +1,11 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=2 format=3 uid="uid://bfo8etdugmxh8"]
 
-[ext_resource path="res://Assets/UI/Scripts/BuildMenuContainer.gd" type="Script" id=5]
+[ext_resource type="Script" path="res://Assets/UI/Scripts/BuildMenuContainer.gd" id="5"]
 
 [node name="BuildMenuContainer" type="GridContainer"]
-margin_right = 207.0
-margin_bottom = 40.0
-rect_min_size = Vector2( 207, 40 )
-custom_constants/vseparation = 12
+custom_minimum_size = Vector2(207, 40)
+offset_right = 207.0
+offset_bottom = 40.0
+theme_override_constants/v_separation = 12
 columns = 4
-script = ExtResource( 5 )
-__meta__ = {
-"_editor_description_": ""
-}
+script = ExtResource("5")

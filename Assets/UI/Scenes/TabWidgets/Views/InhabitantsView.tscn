@@ -1,285 +1,219 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=15 format=3 uid="uid://cgcgg4drkg2"]
 
-[ext_resource path="res://Assets/UI/Fonts/SmallFontItalic.tres" type="DynamicFont" id=1]
-[ext_resource path="res://Assets/UI/Fonts/TitleFontCapitalizeInline.tres" type="DynamicFont" id=2]
-[ext_resource path="res://Assets/UI/Scenes/TabWidgets/Views/TaxesControl.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Assets/UI/Scenes/Labels/LabelEx.tscn" type="PackedScene" id=7]
-[ext_resource path="res://Assets/UI/Scenes/Caption.tscn" type="PackedScene" id=8]
-[ext_resource path="res://Assets/UI/Icons/Widgets/CityInfo/inhabitants_small.png" type="Texture" id=9]
-[ext_resource path="res://Assets/UI/Icons/Widgets/CityInfo/house_small.png" type="Texture" id=11]
-[ext_resource path="res://Assets/UI/Icons/Templates/Happiness/happy.png" type="Texture" id=12]
-[ext_resource path="res://Assets/UI/Images/Buttons/Upgrade/hover_to_disallow.png" type="Texture" id=13]
-[ext_resource path="res://Assets/UI/Icons/Templates/Happiness/sad.png" type="Texture" id=14]
-[ext_resource path="res://Assets/UI/Images/Buttons/Upgrade/allow.png" type="Texture" id=15]
-[ext_resource path="res://Assets/UI/Icons/Templates/Happiness/average.png" type="Texture" id=16]
-[ext_resource path="res://Assets/UI/Images/Buttons/Upgrade/disallow.png" type="Texture" id=18]
-[ext_resource path="res://Assets/UI/Scenes/ToggleButton.tscn" type="PackedScene" id=20]
+[ext_resource type="PackedScene" uid="uid://ctl4mm5ebcdgp" path="res://Assets/UI/Scenes/TabWidgets/Views/TaxesControl.tscn" id="3"]
+[ext_resource type="FontFile" uid="uid://c7mf5eos0ogry" path="res://External/Fonts/LinLibertineB.ttf" id="4_m7j7l"]
+[ext_resource type="PackedScene" uid="uid://cbnxdcqt458h3" path="res://Assets/UI/Scenes/Labels/LabelEx.tscn" id="7"]
+[ext_resource type="PackedScene" uid="uid://b16i4umssn85e" path="res://Assets/UI/Scenes/Caption.tscn" id="8"]
+[ext_resource type="Texture2D" uid="uid://o3aikxwqsv82" path="res://Assets/UI/Icons/Widgets/CityInfo/inhabitants_small.png" id="9"]
+[ext_resource type="FontFile" uid="uid://b132ikq6ayfyj" path="res://External/Fonts/LinLibertineC.ttf" id="9_x4lfx"]
+[ext_resource type="Texture2D" uid="uid://bmil7lsqeo4l" path="res://Assets/UI/Icons/Widgets/CityInfo/house_small.png" id="11"]
+[ext_resource type="Texture2D" uid="uid://dmowgnr3yck1o" path="res://Assets/UI/Icons/Templates/Happiness/happy.png" id="12"]
+[ext_resource type="Texture2D" uid="uid://ln7pnee0vok6" path="res://Assets/UI/Images/Buttons/Upgrade/hover_to_disallow.png" id="13"]
+[ext_resource type="Texture2D" uid="uid://cp3hy4khiel67" path="res://Assets/UI/Icons/Templates/Happiness/sad.png" id="14"]
+[ext_resource type="Texture2D" uid="uid://cum4q0dw0rell" path="res://Assets/UI/Images/Buttons/Upgrade/allow.png" id="15"]
+[ext_resource type="Texture2D" uid="uid://bftwdmmuff2b3" path="res://Assets/UI/Icons/Templates/Happiness/average.png" id="16"]
+[ext_resource type="Texture2D" uid="uid://bhjurti0vsxt2" path="res://Assets/UI/Images/Buttons/Upgrade/disallow.png" id="18"]
+[ext_resource type="PackedScene" uid="uid://csciqbokc84wb" path="res://Assets/UI/Scenes/ToggleButton.tscn" id="20"]
 
 [node name="InhabitantsView" type="VBoxContainer"]
+custom_minimum_size = Vector2(217, 358)
+anchors_preset = -1
 anchor_right = 0.136
 anchor_bottom = 0.398
-margin_right = -0.600006
-margin_bottom = -0.200043
-rect_min_size = Vector2( 217, 358 )
+offset_right = -0.600006
+offset_bottom = -0.200043
 
-[node name="Caption" parent="." instance=ExtResource( 8 )]
-margin_right = 217.0
-margin_bottom = 31.0
+[node name="Caption" parent="." instance=ExtResource("8")]
+layout_mode = 2
 text = "Inhibitant class"
 
 [node name="HSeparator" type="HSeparator" parent="."]
-margin_top = 35.0
-margin_right = 217.0
-margin_bottom = 39.0
+layout_mode = 2
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
-margin_top = 43.0
-margin_right = 217.0
-margin_bottom = 358.0
-custom_constants/margin_right = 10
-custom_constants/margin_left = 10
+layout_mode = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
-margin_left = 10.0
-margin_right = 207.0
-margin_bottom = 315.0
+layout_mode = 2
 
-[node name="TaxesControl" parent="MarginContainer/VBoxContainer" instance=ExtResource( 3 )]
+[node name="TaxesControl" parent="MarginContainer/VBoxContainer" instance=ExtResource("3")]
+layout_mode = 2
 
-[node name="LabelEx" parent="MarginContainer/VBoxContainer" instance=ExtResource( 7 )]
-margin_top = 48.0
-margin_right = 197.0
-margin_bottom = 66.0
-custom_fonts/font = ExtResource( 1 )
+[node name="LabelEx" parent="MarginContainer/VBoxContainer" instance=ExtResource("7")]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_m7j7l")
+theme_override_font_sizes/font_size = 20
 text = "Upgrade permissions:"
 font_style = 8
 
-[node name="AllowButton" parent="MarginContainer/VBoxContainer" instance=ExtResource( 20 )]
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_left = 0.0
-margin_top = 70.0
-margin_right = 32.0
-margin_bottom = 102.0
-rect_min_size = Vector2( 32, 32 )
-rect_pivot_offset = Vector2( 16, 16 )
+[node name="AllowButton" parent="MarginContainer/VBoxContainer" instance=ExtResource("20")]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
 size_flags_horizontal = 0
 toggle_mode = true
-texture_normal = ExtResource( 15 )
-texture_hover = ExtResource( 13 )
+texture_normal = ExtResource("15")
+texture_hover = ExtResource("13")
 texture_click_mask = null
-texture_normal_initial = ExtResource( 15 )
-texture_hover_initial = ExtResource( 13 )
-texture_normal_alternate = ExtResource( 18 )
+texture_normal_initial = ExtResource("15")
+texture_hover_initial = ExtResource("13")
+texture_normal_alternate = ExtResource("18")
 
 [node name="TextureRect" parent="MarginContainer/VBoxContainer/AllowButton" index="0"]
 visible = false
 
 [node name="HSeparator" type="HSeparator" parent="MarginContainer/VBoxContainer"]
-margin_top = 106.0
-margin_right = 197.0
-margin_bottom = 110.0
+layout_mode = 2
 
-[node name="LabelEx2" parent="MarginContainer/VBoxContainer" instance=ExtResource( 7 )]
-margin_top = 114.0
-margin_right = 197.0
-margin_bottom = 135.0
-custom_fonts/font = ExtResource( 2 )
+[node name="LabelEx2" parent="MarginContainer/VBoxContainer" instance=ExtResource("7")]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("9_x4lfx")
+theme_override_font_sizes/font_size = 18
 text = "Happiness per house"
 font_style = 1
 
 [node name="GridContainer" type="GridContainer" parent="MarginContainer/VBoxContainer"]
-margin_top = 139.0
-margin_right = 197.0
-margin_bottom = 177.0
+layout_mode = 2
 columns = 4
 
 [node name="Control" type="Control" parent="MarginContainer/VBoxContainer/GridContainer"]
-margin_right = 16.0
-margin_bottom = 16.0
-rect_min_size = Vector2( 16, 16 )
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 2
 
 [node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/GridContainer"]
-margin_left = 20.0
-margin_right = 76.0
-margin_bottom = 16.0
-rect_min_size = Vector2( 48, 0 )
-texture = ExtResource( 14 )
-expand = true
-stretch_mode = 6
+custom_minimum_size = Vector2(48, 0)
+layout_mode = 2
+texture = ExtResource("14")
+stretch_mode = 5
 
 [node name="TextureRect2" type="TextureRect" parent="MarginContainer/VBoxContainer/GridContainer"]
-margin_left = 80.0
-margin_right = 136.0
-margin_bottom = 16.0
-rect_min_size = Vector2( 48, 0 )
-texture = ExtResource( 16 )
-expand = true
-stretch_mode = 6
+custom_minimum_size = Vector2(48, 0)
+layout_mode = 2
+texture = ExtResource("16")
+stretch_mode = 5
 
 [node name="TextureRect3" type="TextureRect" parent="MarginContainer/VBoxContainer/GridContainer"]
-margin_left = 140.0
-margin_right = 196.0
-margin_bottom = 16.0
-rect_min_size = Vector2( 48, 0 )
-texture = ExtResource( 12 )
-expand = true
-stretch_mode = 6
+custom_minimum_size = Vector2(48, 0)
+layout_mode = 2
+texture = ExtResource("12")
+stretch_mode = 5
 
 [node name="TextureRect4" type="TextureRect" parent="MarginContainer/VBoxContainer/GridContainer"]
-margin_top = 20.0
-margin_right = 16.0
-margin_bottom = 38.0
-texture = ExtResource( 11 )
+layout_mode = 2
+texture = ExtResource("11")
 
-[node name="LabelEx" parent="MarginContainer/VBoxContainer/GridContainer" instance=ExtResource( 7 )]
-margin_left = 20.0
-margin_top = 20.0
-margin_right = 76.0
-margin_bottom = 38.0
-custom_fonts/font = ExtResource( 1 )
+[node name="LabelEx" parent="MarginContainer/VBoxContainer/GridContainer" instance=ExtResource("7")]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_m7j7l")
+theme_override_font_sizes/font_size = 20
 text = "0"
-align = 1
 font_style = 8
 
-[node name="LabelEx2" parent="MarginContainer/VBoxContainer/GridContainer" instance=ExtResource( 7 )]
-margin_left = 80.0
-margin_top = 20.0
-margin_right = 136.0
-margin_bottom = 38.0
-custom_fonts/font = ExtResource( 1 )
+[node name="LabelEx2" parent="MarginContainer/VBoxContainer/GridContainer" instance=ExtResource("7")]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_m7j7l")
+theme_override_font_sizes/font_size = 20
 text = "0"
-align = 1
 font_style = 8
 
-[node name="LabelEx3" parent="MarginContainer/VBoxContainer/GridContainer" instance=ExtResource( 7 )]
-margin_left = 140.0
-margin_top = 20.0
-margin_right = 196.0
-margin_bottom = 38.0
-custom_fonts/font = ExtResource( 1 )
+[node name="LabelEx3" parent="MarginContainer/VBoxContainer/GridContainer" instance=ExtResource("7")]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_m7j7l")
+theme_override_font_sizes/font_size = 20
 text = "0"
-align = 1
 font_style = 8
 
-[node name="LabelEx3" parent="MarginContainer/VBoxContainer" instance=ExtResource( 7 )]
-margin_top = 181.0
-margin_right = 197.0
-margin_bottom = 202.0
-custom_fonts/font = ExtResource( 2 )
+[node name="LabelEx3" parent="MarginContainer/VBoxContainer" instance=ExtResource("7")]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("9_x4lfx")
+theme_override_font_sizes/font_size = 18
 text = "Residents per house"
 font_style = 1
 
 [node name="GridContainer2" type="GridContainer" parent="MarginContainer/VBoxContainer"]
-margin_top = 206.0
-margin_right = 197.0
-margin_bottom = 246.0
+layout_mode = 2
 columns = 3
 
 [node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/GridContainer2"]
-margin_right = 16.0
-margin_bottom = 18.0
-texture = ExtResource( 9 )
+layout_mode = 2
+texture = ExtResource("9")
 
-[node name="LabelEx" parent="MarginContainer/VBoxContainer/GridContainer2" instance=ExtResource( 7 )]
-margin_left = 20.0
-margin_right = 106.0
-custom_fonts/font = ExtResource( 1 )
+[node name="LabelEx" parent="MarginContainer/VBoxContainer/GridContainer2" instance=ExtResource("7")]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_m7j7l")
+theme_override_font_sizes/font_size = 20
 text = "0"
-align = 1
 font_style = 8
 
-[node name="LabelEx2" parent="MarginContainer/VBoxContainer/GridContainer2" instance=ExtResource( 7 )]
-margin_left = 110.0
-margin_right = 196.0
-custom_fonts/font = ExtResource( 1 )
+[node name="LabelEx2" parent="MarginContainer/VBoxContainer/GridContainer2" instance=ExtResource("7")]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_m7j7l")
+theme_override_font_sizes/font_size = 20
 text = "0"
-align = 1
 font_style = 8
 
 [node name="TextureRect2" type="TextureRect" parent="MarginContainer/VBoxContainer/GridContainer2"]
-margin_top = 22.0
-margin_right = 16.0
-margin_bottom = 40.0
-texture = ExtResource( 11 )
+layout_mode = 2
+texture = ExtResource("11")
 
-[node name="LabelEx3" parent="MarginContainer/VBoxContainer/GridContainer2" instance=ExtResource( 7 )]
-margin_left = 20.0
-margin_top = 22.0
-margin_right = 106.0
-margin_bottom = 40.0
-custom_fonts/font = ExtResource( 1 )
+[node name="LabelEx3" parent="MarginContainer/VBoxContainer/GridContainer2" instance=ExtResource("7")]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_m7j7l")
+theme_override_font_sizes/font_size = 20
 text = "0"
-align = 1
 font_style = 8
 
-[node name="LabelEx4" parent="MarginContainer/VBoxContainer/GridContainer2" instance=ExtResource( 7 )]
-margin_left = 110.0
-margin_top = 22.0
-margin_right = 196.0
-margin_bottom = 40.0
-custom_fonts/font = ExtResource( 1 )
+[node name="LabelEx4" parent="MarginContainer/VBoxContainer/GridContainer2" instance=ExtResource("7")]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_m7j7l")
+theme_override_font_sizes/font_size = 20
 text = "0"
-align = 1
 font_style = 8
 
-[node name="LabelEx4" parent="MarginContainer/VBoxContainer" instance=ExtResource( 7 )]
-margin_top = 250.0
-margin_right = 197.0
-margin_bottom = 271.0
-custom_fonts/font = ExtResource( 2 )
+[node name="LabelEx4" parent="MarginContainer/VBoxContainer" instance=ExtResource("7")]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("9_x4lfx")
+theme_override_font_sizes/font_size = 18
 text = "Summary"
 font_style = 1
 
 [node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer"]
-margin_top = 275.0
-margin_right = 197.0
-margin_bottom = 315.0
-custom_constants/margin_right = 10
-custom_constants/margin_left = 5
+layout_mode = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/MarginContainer"]
-margin_left = 5.0
-margin_right = 187.0
-margin_bottom = 40.0
+layout_mode = 2
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/VBoxContainer/MarginContainer/VBoxContainer"]
-margin_right = 182.0
-margin_bottom = 18.0
+layout_mode = 2
 
-[node name="LabelEx" parent="MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer2" instance=ExtResource( 7 )]
-margin_right = 89.0
-custom_fonts/font = ExtResource( 1 )
+[node name="LabelEx" parent="MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer2" instance=ExtResource("7")]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_m7j7l")
+theme_override_font_sizes/font_size = 20
 text = "houses"
 font_style = 8
 
-[node name="LabelEx2" parent="MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer2" instance=ExtResource( 7 )]
-margin_left = 93.0
-margin_right = 182.0
-custom_fonts/font = ExtResource( 1 )
+[node name="LabelEx2" parent="MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer2" instance=ExtResource("7")]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_m7j7l")
+theme_override_font_sizes/font_size = 20
 text = "0"
-align = 2
 font_style = 8
 
 [node name="HBoxContainer3" type="HBoxContainer" parent="MarginContainer/VBoxContainer/MarginContainer/VBoxContainer"]
-margin_top = 22.0
-margin_right = 182.0
-margin_bottom = 40.0
+layout_mode = 2
 
-[node name="LabelEx" parent="MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer3" instance=ExtResource( 7 )]
-margin_right = 89.0
-custom_fonts/font = ExtResource( 1 )
+[node name="LabelEx" parent="MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer3" instance=ExtResource("7")]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_m7j7l")
+theme_override_font_sizes/font_size = 20
 text = "residents"
 font_style = 8
 
-[node name="LabelEx2" parent="MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer3" instance=ExtResource( 7 )]
-margin_left = 93.0
-margin_right = 182.0
-custom_fonts/font = ExtResource( 1 )
+[node name="LabelEx2" parent="MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/HBoxContainer3" instance=ExtResource("7")]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_m7j7l")
+theme_override_font_sizes/font_size = 20
 text = "0"
-align = 2
 font_style = 8
 
 [editable path="MarginContainer/VBoxContainer/AllowButton"]

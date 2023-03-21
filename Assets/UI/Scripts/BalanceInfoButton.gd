@@ -1,9 +1,9 @@
-tool
+@tool
 extends VBoxContainer
 
-export(bool) var show_details setget set_show_details
+@export var show_details: bool : set = set_show_details
 
-onready var details = $VBoxContainer/Details
+@onready var details = $VBoxContainer/Details
 
 func _process(_delta: float) -> void:
 	if Engine.is_editor_hint():

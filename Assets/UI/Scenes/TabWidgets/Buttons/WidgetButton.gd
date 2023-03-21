@@ -1,20 +1,21 @@
-tool
+@tool
 extends TextureButton
 class_name WidgetButton
-# Base class for all widget buttons.
-#
-# All input events are catched by the (larger) child node (background)
-# and passed only when the cursor lies in a valid / triggerable location
-# (i.e. inside the sprite's opaque region).
-#
-# Since there is currently no proper way to trigger the button to leave
-# the hovered state once the mouse left again, we force-disable it by
-# clearing the texture_hover value, caching it inside the class and then
-# swap it back and forth into the texture slot whenever actually needed.
 
-# TODO: Investigate what's needed in total and
-#		create several styles for various purposes.
-#		Unused for now, maybe not this much of variation needed after all?
+## Base class for all widget buttons.
+##
+## All input events are catched by the (larger) child node (background)
+## and passed only when the cursor lies in a valid / triggerable location
+## (i.e. inside the sprite's opaque region).[br][br]
+##
+## Since there is currently no proper way to trigger the button to leave
+## the hovered state once the mouse left again, we force-disable it by
+## clearing the texture_hover value, caching it inside the class and then
+## swap it back and forth into the texture slot whenever actually needed.
+
+## ❗TODO: Investigate what's needed in total and
+##		create several styles for various purposes.
+##		Unused for now, maybe not this much of variation needed after all?
 enum Style {
 	NONE,
 	ROUNDED,
@@ -32,26 +33,26 @@ const STYLES = [
 
 const TEXTURE_CLICK_MASK_ROUNDED = preload("res://Assets/UI/Images/Buttons/msg_button_mask.png")
 
-#export(Array, Texture) var styles_view_only := STYLES
-#export(Style) var style := Style.ROUNDED #setget set_style
+#export var styles_view_only := STYLES # (Array, Texture2D)
+#export var style: Style := Style.ROUNDED #: set = set_style
 
-onready var texture_rect := $TextureRect as TextureRect
-onready var _texture_hover := texture_hover
+@onready var texture_rect := $TextureRect as TextureRect
+@onready var _texture_hover := texture_hover
 
 func _ready() -> void:
 #	prints("texture_normal.get_size()", texture_normal.get_size())
-#	prints("rect_size", rect_size)
+#	prints("size", size)
 	if texture_normal:
 		if texture_click_mask:
-			if texture_normal.get_size() != texture_click_mask.get_size():
+			if Vector2i(texture_normal.get_size()) != texture_click_mask.get_size():
 				texture_rect.mouse_filter = Control.MOUSE_FILTER_PASS
 
 func _draw() -> void:
 	if texture_normal:
-		if rect_size > texture_normal.get_size():
-			rect_size = texture_normal.get_size()
+		if size > texture_normal.get_size():
+			size = texture_normal.get_size()
 
-			property_list_changed_notify()
+			notify_property_list_changed()
 
 func _pressed() -> void:
 	Audio.play_snd_click()
@@ -59,11 +60,11 @@ func _pressed() -> void:
 func _notification(what: int) -> void:
 	match what:
 		NOTIFICATION_RESIZED:
-			rect_pivot_offset = rect_size / 2 # always keep the pivot centered
-			#texture_rect.rect_pivot_offset = texture_rect.rect_size / 2
+			pivot_offset = size / 2 # always keep the pivot centered
+			#texture_rect.pivot_offset = texture_rect.size / 2
 
 #func set_style(new_style: int) -> void:
-#	if not is_inside_tree(): yield(self, "ready"); _on_ready()
+#	if not is_inside_tree(): await self.ready; _on_ready()
 #
 #	var configuration := {
 #		Style.NONE:           [false, null, null],
@@ -105,11 +106,9 @@ func _is_pixel_opaque(tolerance: int = 145) -> bool:
 	var image := texture_rect.texture.get_data() as Image
 
 	var pos_relative_to_rect :=\
-			get_local_mouse_position() - texture_rect.rect_position as Vector2
+			get_local_mouse_position() - texture_rect.position as Vector2
 
-	image.lock()
 	var color := image.get_pixelv(pos_relative_to_rect) as Color
-	image.unlock()
 	if color.a8 > tolerance:
 		#prints(pos_relative_to_rect, color.a8)
 		return true
@@ -128,10 +127,12 @@ func _on_ActionButton_mouse_exited() -> void:
 	prints("exited")
 
 func _on_TextureRect_gui_input(_event: InputEvent) -> void:
+	return # TODO: Revise function for Godot 4
+
 	if not texture_rect.visible:
 		return
 
-	if rect_size <= texture_rect.rect_size:
+	if size <= texture_rect.size:
 		if _is_pixel_opaque():
 			#mouse_filter = Control.MOUSE_FILTER_STOP
 			texture_rect.mouse_filter = Control.MOUSE_FILTER_PASS

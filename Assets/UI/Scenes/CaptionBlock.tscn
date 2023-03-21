@@ -1,24 +1,28 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=3 uid="uid://4ona153u3wvl"]
 
-[ext_resource path="res://Assets/UI/Scenes/Caption.tscn" type="PackedScene" id=1]
-[ext_resource path="res://Assets/UI/Scenes/Separator.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Assets/UI/Scripts/CaptionBlock.gd" type="Script" id=3]
+[ext_resource type="PackedScene" uid="uid://b16i4umssn85e" path="res://Assets/UI/Scenes/Caption.tscn" id="1"]
+[ext_resource type="PackedScene" uid="uid://cd4byu1hpqbyq" path="res://Assets/UI/Scenes/Separator.tscn" id="2"]
+[ext_resource type="Script" path="res://Assets/UI/Scripts/CaptionBlock.gd" id="3"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_lmysk"]
 
 [node name="CaptionBlock" type="VBoxContainer"]
-margin_right = 300.0
-margin_bottom = 55.0
-rect_min_size = Vector2( 300, 0 )
-size_flags_horizontal = 0
-script = ExtResource( 3 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
+offset_left = -1.0
+offset_right = 299.0
+offset_bottom = 55.0
+theme_override_constants/separation = 0
+script = ExtResource("3")
 
-[node name="Caption" parent="." instance=ExtResource( 1 )]
-margin_bottom = 31.0
+[node name="HSeparator" type="HSeparator" parent="."]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxEmpty_lmysk")
+
+[node name="Caption" parent="." instance=ExtResource("1")]
+layout_mode = 2
 size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 16
+font_style = 0
 
-[node name="Separator" parent="." instance=ExtResource( 2 )]
-margin_top = 35.0
-margin_right = 300.0
-margin_bottom = 56.0
+[node name="Separator" parent="." instance=ExtResource("2")]
+layout_mode = 2

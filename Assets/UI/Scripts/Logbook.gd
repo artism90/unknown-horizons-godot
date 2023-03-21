@@ -1,17 +1,17 @@
-tool
-extends Control
+@tool
+extends BookMenu
 class_name Logbook
 
-export(int) var current_page setget set_current_page
-#export(String) var caption_text := "This is a Book Title" setget set_caption_text
-#export(String, MULTILINE) var body_text := "There is nothing written in your logbook yet!" setget set_body_text
-export(Array, Array, String, MULTILINE) var pages := [["This is a Book Title", "There is nothing written in your logbook yet!"]] setget set_pages
+@export var current_page: int : set = set_current_page
+#export var caption_text: String := "This is a Book Title" : set = set_caption_text
+#export var body_text := "There is nothing written in your logbook yet!" setget set_body_text # (String, MULTILINE)
+@export var pages := [["This is a Book Title", "There is nothing written in your logbook yet!"]] : set = set_pages # (Array, Array, String, MULTILINE)
 
-onready var caption := $CenterContainer/TextureRect/MarginContainer/HBoxContainer/LeftPage/CaptionBlock/Caption
-onready var body := $CenterContainer/TextureRect/MarginContainer/HBoxContainer/LeftPage/Body
+@onready var caption := $CenterContainer/TextureRect/MarginContainer/HBoxContainer/LeftPage/CaptionBlock/Caption
+@onready var body := $CenterContainer/TextureRect/MarginContainer/HBoxContainer/LeftPage/Body
 
 #onready var page_control := $CenterContainer/TextureRect/MarginContainer/HBoxContainer/LeftPage/PageControl
-onready var page_control := find_node("PageControl")
+@onready var page_control := find_child("PageControl")
 
 func _ready() -> void:
 	update_book()
@@ -25,7 +25,7 @@ func update_book() -> void:
 	update_page_control()
 
 func update_text() -> void:
-	if not is_inside_tree(): yield(self, "ready")
+	if not is_inside_tree(): await self.ready
 
 	if pages.size() > 0:
 		caption.text = pages[current_page][0]
@@ -35,7 +35,7 @@ func update_text() -> void:
 		body.text = ""
 
 func update_page_control() -> void:
-	if not is_inside_tree(): yield(self, "ready")
+	if not is_inside_tree(): await self.ready
 
 #	if pages.size() <= 1:
 #		page_control.get_node("PrevButton").disabled = true

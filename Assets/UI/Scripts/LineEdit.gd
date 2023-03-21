@@ -1,14 +1,15 @@
-tool
+@tool
 extends LineEdit
-# Single-line input field
+
+## Single-line input field.
 
 const ALIGN = {
-	"Left": LineEdit.ALIGN_LEFT,
-	"Center": LineEdit.ALIGN_CENTER,
-	"Right": LineEdit.ALIGN_RIGHT
+	"Left": HORIZONTAL_ALIGNMENT_LEFT,
+	"Center": HORIZONTAL_ALIGNMENT_CENTER,
+	"Right": HORIZONTAL_ALIGNMENT_RIGHT
 }
 
-export(String, "Left", "Center", "Right") var align_style := "Center" setget set_align_style
+@export_enum("Left", "Center", "Right") var align_style := "Center" : set = set_align_style
 
 var _current_editable
 
@@ -19,16 +20,16 @@ func _process(_delta: float) -> void:
 			mouse_default_cursor_shape = CURSOR_IBEAM if editable else CURSOR_ARROW
 
 			_current_editable = editable
-			property_list_changed_notify()
+			notify_property_list_changed()
 
 func set_align_style(new_align_style: String) -> void:
 	align_style = new_align_style
 
 	# Text alignment
-	align = ALIGN[align_style]
-#	add_stylebox_override( # StyleBox alignment
+	alignment = ALIGN[align_style]
+#	add_theme_stylebox_override( # StyleBox alignment
 #			"normal",
-#			theme.get_stylebox(
+#			load(ProjectSettings.get_setting("gui/theme/custom")).get_stylebox(
 #				"normal_" + align_style.to_lower() if align_style != "Center"
 #				else
 #				"normal",
@@ -39,12 +40,13 @@ func set_align_style(new_align_style: String) -> void:
 	_apply_style("normal")
 	_apply_style("read_only")
 
-	property_list_changed_notify()
+	notify_property_list_changed()
 
 func _apply_style(name: String) -> void:
-	add_stylebox_override(
+	return # TODO: Review for Godot 4
+	add_theme_stylebox_override(
 			name,
-			theme.get_stylebox(
+			load(ProjectSettings.get_setting("gui/theme/custom")).get_stylebox(
 				name + "_" + align_style.to_lower() if align_style != "Center"
 				else
 				name,

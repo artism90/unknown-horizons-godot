@@ -1,14 +1,13 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=6 format=3 uid="uid://cmoid5657jod0"]
 
-[ext_resource path="res://Assets/UI/Scenes/TabWidgets/Buttons/ActionButtons/Buttons/BuildButton.tscn" type="PackedScene" id=1]
-[ext_resource path="res://Assets/UI/Icons/BuildMenu/Greyscale/054.png" type="Texture" id=2]
-[ext_resource path="res://Assets/UI/Icons/BuildMenu/054.png" type="Texture" id=3]
-[ext_resource path="res://Assets/UI/Icons/BuildMenu/054_h.png" type="Texture" id=4]
-[ext_resource path="res://Assets/UI/Icons/BuildMenu/054_d.png" type="Texture" id=5]
+[ext_resource type="PackedScene" uid="uid://bjhw4v35dyxk8" path="res://Assets/UI/Scenes/TabWidgets/Buttons/ActionButtons/Buttons/BuildButton.tscn" id="1"]
+[ext_resource type="Texture2D" uid="uid://cg015lc2qdy2f" path="res://Assets/UI/Icons/BuildMenu/Greyscale/054.png" id="2"]
+[ext_resource type="Texture2D" uid="uid://qbyjam3478ta" path="res://Assets/UI/Icons/BuildMenu/054.png" id="3"]
+[ext_resource type="Texture2D" uid="uid://b6wfqgtsw61me" path="res://Assets/UI/Icons/BuildMenu/054_h.png" id="4"]
+[ext_resource type="Texture2D" uid="uid://dkpa3kwuxtxvn" path="res://Assets/UI/Icons/BuildMenu/054_d.png" id="5"]
 
-[node name="BuildStonePitButton" instance=ExtResource( 1 )]
-rect_pivot_offset = Vector2( 23, 23 )
-texture_normal = ExtResource( 3 )
-texture_pressed = ExtResource( 5 )
-texture_hover = ExtResource( 4 )
-texture_disabled = ExtResource( 2 )
+[node name="BuildStonePitButton" instance=ExtResource("1")]
+texture_normal = ExtResource("3")
+texture_pressed = ExtResource("5")
+texture_hover = ExtResource("4")
+texture_disabled = ExtResource("2")

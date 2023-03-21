@@ -1,4 +1,4 @@
-tool
+@tool
 extends GridContainer
 
 func _notification(what: int) -> void:
@@ -6,5 +6,5 @@ func _notification(what: int) -> void:
 		NOTIFICATION_READY:
 			var theme := load(ProjectSettings.get_setting("gui/theme/custom")) as Theme
 
-			if not has_constant_override("vseparation"):
-				add_constant_override("vseparation", theme.get_constant("buildmenu_vseparation", "GridContainer"))
+			if not has_theme_constant_override("v_separation"):
+				add_theme_constant_override("v_separation", load(ProjectSettings.get_setting("gui/theme/custom")).get_constant("buildmenu_v_separation", "GridContainer"))

@@ -1,26 +1,22 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=3 uid="uid://dki706goss8om"]
 
-[ext_resource path="res://Assets/UI/Scripts/BalanceInfoItem.gd" type="Script" id=1]
-[ext_resource path="res://Assets/UI/Images/ResbarStats/expense.png" type="Texture" id=2]
-[ext_resource path="res://Assets/UI/Scenes/Labels/LabelEx.tscn" type="PackedScene" id=3]
+[ext_resource type="Script" path="res://Assets/UI/Scripts/BalanceInfoItem.gd" id="1"]
+[ext_resource type="Texture2D" uid="uid://n02c7nr375wn" path="res://Assets/UI/Images/ResbarStats/expense.png" id="2"]
+[ext_resource type="PackedScene" uid="uid://cbnxdcqt458h3" path="res://Assets/UI/Scenes/Labels/LabelEx.tscn" id="3"]
+[ext_resource type="FontFile" path="res://Assets/UI/Fonts/SmallFont.tres" id="4_q4gf7"]
 
 [node name="BalanceInfoItem" type="HBoxContainer"]
-margin_right = 36.0
-margin_bottom = 18.0
-script = ExtResource( 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
+offset_right = 36.0
+offset_bottom = 18.0
+script = ExtResource("1")
 
 [node name="TextureRect" type="TextureRect" parent="."]
-margin_right = 16.0
-margin_bottom = 18.0
-texture = ExtResource( 2 )
+layout_mode = 2
+texture = ExtResource("2")
+stretch_mode = 5
 
-[node name="LabelEx" parent="." instance=ExtResource( 3 )]
-margin_left = 20.0
-margin_right = 36.0
-margin_bottom = 18.0
+[node name="LabelEx" parent="." instance=ExtResource("3")]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_q4gf7")
 text = "+0"
-align = 2
-font_style = 2
+horizontal_alignment = 2

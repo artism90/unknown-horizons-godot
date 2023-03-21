@@ -1,13 +1,14 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=2 format=3 uid="uid://dwbjplhyc41ne"]
 
-[ext_resource path="res://Assets/UI/Scripts/ResourceItem.gd" type="Script" id=1]
+[ext_resource type="Script" path="res://Assets/UI/Scripts/ResourceItem.gd" id="1"]
 
 [node name="ResourceItem" type="TextureRect"]
+anchors_preset = -1
 anchor_right = 0.026
 anchor_bottom = 0.036
-margin_right = -0.600002
-margin_bottom = -0.400002
-rect_pivot_offset = Vector2( 41, 32 )
-expand = true
+offset_right = -0.600002
+offset_bottom = -0.400002
+pivot_offset = Vector2(41, 32)
+expand_mode = 1
 stretch_mode = 6
-script = ExtResource( 1 )
+script = ExtResource("1")

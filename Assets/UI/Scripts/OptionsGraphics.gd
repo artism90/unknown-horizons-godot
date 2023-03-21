@@ -2,7 +2,7 @@ extends GridContainer
 
 func _ready():
 	$NameEdit.text = Global.player_name
-	# add language from Global
+	# Add language from Global.
 	var idx = 0
 	var i = 0
 	for n in Global._lang_array:

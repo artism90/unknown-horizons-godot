@@ -1,10 +1,13 @@
-tool
+@tool
+@icon("res://Assets/UI/Icons/Widgets/CityInfo/settlement.png")
 extends HBoxContainer
-# Info widget displaying generic information about the hovered city.
+class_name CityInfo
 
-const Global = preload("res://Assets/World/Global.gd")
+## Info widget displaying generic information about the currently hovered city.
 
-const FACTION_SETTLEMENT = [
+#const Global = preload("res://Assets/World/Global.gd") TODO: Remove if possible
+
+const _FACTION_SETTLEMENT = [
 	preload("res://Assets/UI/Icons/Widgets/CityInfo/settlement.png"), # neutral
 	preload("res://Assets/UI/Icons/Widgets/CityInfo/settlement_red.png"),
 	preload("res://Assets/UI/Icons/Widgets/CityInfo/settlement_blue.png"),
@@ -22,45 +25,48 @@ const FACTION_SETTLEMENT = [
 	preload("res://Assets/UI/Icons/Widgets/CityInfo/settlement_black.png")
 ]
 
-export(Global.Faction) var faction := 0 setget set_faction
-export(bool) var debug_cycle_factions := false setget debug_set_cycle_factions
+## Determines which faction color to be shown.
+@export var faction: Global.Faction = 0 : set = set_faction
+@export var _debug_cycle_factions := false : set = _debug_set_cycle_factions
 
-onready var faction_settlement := $SettlementName/FactionSettlement
-onready var animation_player := $AnimationPlayer
+@onready var _faction_settlement := $SettlementName/FactionSettlement as TextureRect
+@onready var _animation_player := $AnimationPlayer
 
 func _ready() -> void:
 	if not Engine.is_editor_hint():
 		visible = false
 
 func set_faction(new_faction: int) -> void:
-	if not is_inside_tree(): yield(self, "ready")
+	if not is_inside_tree(): await self.ready
 
 	faction = new_faction
-	faction_settlement.texture = FACTION_SETTLEMENT[faction]
+	_faction_settlement.texture = _FACTION_SETTLEMENT[faction]
 
-	property_list_changed_notify()
+	notify_property_list_changed()
 
-func debug_set_cycle_factions(new_debug_cycle_factions: bool) -> void:
-	if not is_inside_tree(): yield(self, "ready")
+func _debug_set_cycle_factions(new_debug_cycle_factions: bool) -> void:
+	if not is_inside_tree(): await self.ready
 
-	debug_cycle_factions = new_debug_cycle_factions
-	if debug_cycle_factions:
+	_debug_cycle_factions = new_debug_cycle_factions
+	if _debug_cycle_factions:
 		$Timer.start()
 	else:
 		$Timer.stop()
 
-func show() -> void:
-	if animation_player.is_playing():
-		animation_player.stop(false)
-	animation_player.play("fade_in")
+## Fades the info board in.
+func fade_in() -> void:
+	if _animation_player.is_playing():
+		_animation_player.stop(false)
+	_animation_player.play("fade_in")
 
-func hide() -> void:
-	if animation_player.is_playing():
-		animation_player.stop(false)
-	animation_player.play_backwards("fade_in")
+## Fades the info board out.
+func fade_out() -> void:
+	if _animation_player.is_playing():
+		_animation_player.stop(false)
+	_animation_player.play_backwards("fade_in")
 
 func _on_Timer_timeout() -> void:
-	self.faction = wrapi(faction + 1, 0, FACTION_SETTLEMENT.size())
+	self.faction = wrapi(faction + 1, 0, _FACTION_SETTLEMENT.size())
 
 func _on_AnimationPlayer_animation_started(anim_name: String) -> void:
 	match anim_name:

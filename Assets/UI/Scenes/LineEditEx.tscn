@@ -1,65 +1,37 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=5 format=3 uid="uid://dh51lrpv8p56h"]
 
-[ext_resource path="res://Assets/UI/Fonts/SmallFontItalic.tres" type="DynamicFont" id=1]
-[ext_resource path="res://Assets/UI/Scenes/Labels/LabelEx.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Assets/UI/Scripts/LineEditEx.gd" type="Script" id=3]
-[ext_resource path="res://Assets/UI/Themes/Theme.tres" type="Theme" id=4]
-[ext_resource path="res://Assets/UI/Scripts/LineEdit.gd" type="Script" id=5]
-
-[sub_resource type="StyleBoxFlat" id=11]
-content_margin_left = 4.0
-content_margin_right = 10.0
-bg_color = Color( 1, 1, 1, 0.227451 )
-border_width_left = 2
-border_width_top = 4
-border_width_right = 4
-border_width_bottom = 3
-border_color = Color( 0.258824, 0.188235, 0.0509804, 1 )
-border_blend = true
-corner_radius_top_left = 2
-corner_radius_bottom_right = 25
-corner_radius_bottom_left = 2
-corner_detail = 20
+[ext_resource type="PackedScene" uid="uid://cbnxdcqt458h3" path="res://Assets/UI/Scenes/Labels/LabelEx.tscn" id="2"]
+[ext_resource type="Script" path="res://Assets/UI/Scripts/LineEditEx.gd" id="3"]
+[ext_resource type="FontFile" uid="uid://sdfro4oswrtf" path="res://External/Fonts/LinLibertineI.ttf" id="3_l3te3"]
+[ext_resource type="Script" path="res://Assets/UI/Scripts/LineEdit.gd" id="5"]
 
 [node name="LineEditEx" type="HBoxContainer"]
-margin_right = 289.0
-margin_bottom = 30.0
-script = ExtResource( 3 )
-__meta__ = {
-"_edit_group_": true
-}
+offset_right = 289.0
+offset_bottom = 30.0
+script = ExtResource("3")
 
-[node name="LabelEx" parent="." instance=ExtResource( 2 )]
-margin_right = 120.0
-margin_bottom = 30.0
-rect_min_size = Vector2( 120, 0 )
+[node name="LabelEx" parent="." instance=ExtResource("2")]
+custom_minimum_size = Vector2(120, 0)
+layout_mode = 2
 size_flags_horizontal = 0
-custom_fonts/font = ExtResource( 1 )
+theme_override_fonts/font = ExtResource("3_l3te3")
+theme_override_font_sizes/font_size = 16
 text = "Descriptive Label:"
-valign = 1
+vertical_alignment = 1
 clip_text = true
-font_style = 8
+font_style = 9
 
 [node name="LineEdit" type="LineEdit" parent="."]
-margin_left = 124.0
-margin_right = 289.0
-margin_bottom = 30.0
-rect_min_size = Vector2( 165, 30 )
+custom_minimum_size = Vector2(165, 30)
+layout_mode = 2
 size_flags_horizontal = 7
 size_flags_vertical = 4
-theme = ExtResource( 4 )
-custom_styles/read_only = SubResource( 11 )
-custom_styles/focus = SubResource( 11 )
-custom_styles/normal = SubResource( 11 )
 text = "Example Text"
 context_menu_enabled = false
 caret_blink = true
-script = ExtResource( 5 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
+script = ExtResource("5")
 align_style = "Left"
 
 [connection signal="text_change_rejected" from="LineEdit" to="." method="_on_LineEdit_text_change_rejected"]
 [connection signal="text_changed" from="LineEdit" to="." method="_on_LineEdit_text_changed"]
-[connection signal="text_entered" from="LineEdit" to="." method="_on_LineEdit_text_entered"]
+[connection signal="text_submitted" from="LineEdit" to="." method="_on_LineEdit_text_entered"]

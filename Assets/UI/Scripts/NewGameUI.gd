@@ -1,10 +1,12 @@
-tool
+@tool
 extends BookMenu
 class_name NewGameUI
 
-onready var player_name := find_node("PlayerName") as LineEditEx
+@onready var player_name := find_child("PlayerName") as LineEditEx
 
 func _ready() -> void:
+	super()
+
 	# Deactivate everything irrelevant for the time being
 	var nodes = {
 		"Scenario": null,
@@ -33,12 +35,12 @@ func find_nodes(root_node: Node, nodes_to_be_found: Dictionary) -> void:
 			nodes_to_be_found[n.name] = n
 
 func _on_CancelButton_pressed() -> void:
-	._on_CancelButton_pressed()
+	super()
 
 func _on_OKButton_pressed() -> void:
 	if Global.map:
 		queue_free()
 		#warning-ignore:return_value_discarded
-		get_tree().change_scene_to(Global.map)
+		get_tree().change_scene_to_packed(Global.map)
 	else:
 		Audio.play_snd_fail()

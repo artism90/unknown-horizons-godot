@@ -1,46 +1,31 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=5 format=3 uid="uid://cykv8v0jo3fix"]
 
-[ext_resource path="res://Assets/UI/Scenes/MessageButton.tscn" type="PackedScene" id=1]
-[ext_resource path="res://Assets/UI/Scripts/Message.gd" type="Script" id=2]
-[ext_resource path="res://Assets/UI/Scenes/MessageText.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Assets/UI/Images/Buttons/msg_button_mask.png" type="BitMap" id=4]
-
-[sub_resource type="DynamicFontData" id=1]
-font_path = "res://External/Fonts/LinLibertine.ttf"
-
-[sub_resource type="DynamicFont" id=2]
-size = 17
-use_filter = true
-font_data = SubResource( 1 )
+[ext_resource type="PackedScene" uid="uid://b2315nl16ghe5" path="res://Assets/UI/Scenes/MessageButton.tscn" id="1"]
+[ext_resource type="Script" path="res://Assets/UI/Scripts/Message.gd" id="2"]
+[ext_resource type="PackedScene" uid="uid://1lts0t2jf0xg" path="res://Assets/UI/Scenes/MessageText.tscn" id="3"]
+[ext_resource type="BitMap" uid="uid://jjft0jty5esx" path="res://Assets/UI/Images/Buttons/msg_button_mask.png" id="4"]
 
 [node name="Message" type="HBoxContainer"]
-margin_right = 313.0
-margin_bottom = 66.0
-rect_min_size = Vector2( 0, 66 )
+custom_minimum_size = Vector2(0, 66)
+offset_right = 313.0
+offset_bottom = 66.0
 mouse_filter = 2
-script = ExtResource( 2 )
+script = ExtResource("2")
 message_text = "This is a message notification in the actual Message node."
 
-[node name="MessageButton" parent="." instance=ExtResource( 1 )]
-texture_click_mask = ExtResource( 4 )
+[node name="MessageButton" parent="." instance=ExtResource("1")]
+layout_mode = 2
+texture_click_mask = ExtResource("4")
 
 [node name="VSeparator" type="VSeparator" parent="."]
-modulate = Color( 1, 1, 1, 0 )
-margin_left = 56.0
-margin_right = 64.0
-margin_bottom = 66.0
-rect_min_size = Vector2( 8, 0 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
+modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(8, 0)
+layout_mode = 2
 
-[node name="MessageText" parent="." instance=ExtResource( 3 )]
-margin_left = 68.0
-margin_right = 317.0
+[node name="MessageText" parent="." instance=ExtResource("3")]
+layout_mode = 2
 size_flags_vertical = 1
-custom_fonts/font = SubResource( 2 )
 text = "This is a message notification in the actual Message node."
-message_text = "This is a message notification in the actual Message node."
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 8.0

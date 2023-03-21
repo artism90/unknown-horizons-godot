@@ -1,136 +1,130 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=8 format=3 uid="uid://bp2py6n7wcu2e"]
 
-[ext_resource path="res://Assets/UI/Scripts/BalanceInfoButton.gd" type="Script" id=1]
-[ext_resource path="res://Assets/UI/Images/Background/Widgets/res_mon_bg.png" type="Texture" id=2]
-[ext_resource path="res://Assets/UI/Icons/Resources/32/001.png" type="Texture" id=3]
-[ext_resource path="res://Assets/UI/Scenes/Labels/MediumLabelBoldItalicCentered.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Assets/UI/Images/Background/Widgets/resbar_stats_background.png" type="Texture" id=5]
-[ext_resource path="res://Assets/UI/Scenes/BalanceInfoItem.tscn" type="PackedScene" id=6]
-[ext_resource path="res://Assets/UI/Images/Background/Widgets/resbar_stats_bottom.png" type="Texture" id=7]
-[ext_resource path="res://Assets/UI/Fonts/SmallFont.tres" type="DynamicFont" id=8]
-
-[sub_resource type="StyleBoxEmpty" id=1]
+[ext_resource type="Script" path="res://Assets/UI/Scripts/BalanceInfoButton.gd" id="1"]
+[ext_resource type="Texture2D" uid="uid://dm1iiolcn53a8" path="res://Assets/UI/Images/Background/Widgets/res_mon_bg.png" id="2"]
+[ext_resource type="Texture2D" uid="uid://toeqa364p2tp" path="res://Assets/UI/Icons/Resources/32/001.png" id="3"]
+[ext_resource type="PackedScene" uid="uid://b34xk4pjvbgeg" path="res://Assets/UI/Scenes/Labels/MediumLabelBoldItalicCentered.tscn" id="4"]
+[ext_resource type="Texture2D" uid="uid://cmblp4k0re2el" path="res://Assets/UI/Images/Background/Widgets/resbar_stats_background.png" id="5"]
+[ext_resource type="PackedScene" uid="uid://dki706goss8om" path="res://Assets/UI/Scenes/BalanceInfoItem.tscn" id="6"]
+[ext_resource type="Texture2D" uid="uid://cdfix4q8x0av5" path="res://Assets/UI/Images/Background/Widgets/resbar_stats_bottom.png" id="7"]
 
 [node name="BalanceInfoButton" type="VBoxContainer"]
 show_behind_parent = true
-margin_right = 78.0
-margin_bottom = 170.0
+offset_right = 87.0
+offset_bottom = 169.0
 mouse_filter = 2
-custom_constants/separation = -8
-script = ExtResource( 1 )
+theme_override_constants/separation = -14
+script = ExtResource("1")
 show_details = true
 
 [node name="TextureButton" type="TextureButton" parent="."]
-margin_right = 78.0
-margin_bottom = 74.0
-rect_min_size = Vector2( 0, 74 )
-texture_normal = ExtResource( 2 )
-expand = true
-stretch_mode = 3
-__meta__ = {
-"_edit_use_anchors_": false
-}
+layout_mode = 2
+size_flags_horizontal = 4
+texture_normal = ExtResource("2")
+stretch_mode = 5
 
 [node name="TextureRect" type="TextureRect" parent="TextureButton"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_top = 4.0
-margin_bottom = -35.0
-texture = ExtResource( 3 )
-expand = true
-stretch_mode = 6
-__meta__ = {
-"_edit_lock_": true,
-"_edit_use_anchors_": false
-}
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -18.0
+offset_top = -33.0
+offset_right = 14.0
+offset_bottom = -1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3")
+stretch_mode = 5
 
-[node name="Money" parent="TextureButton" instance=ExtResource( 4 )]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_top = 47.0
-margin_right = -4.0
-margin_bottom = -6.0
-custom_fonts/font = ExtResource( 8 )
+[node name="Money" parent="TextureButton" instance=ExtResource("4")]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.069
+anchor_top = 0.575
+anchor_right = 0.931
+anchor_bottom = 0.793
+offset_left = -0.00300026
+offset_top = 1.97499
+offset_right = 0.00299835
+offset_bottom = 2.009
+grow_horizontal = 2
+grow_vertical = 2
 text = "63000"
 clip_text = true
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
-margin_top = 66.0
-margin_right = 78.0
-margin_bottom = 170.0
-custom_constants/separation = 0
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 0
 
 [node name="Details" type="TextureRect" parent="VBoxContainer"]
-margin_right = 78.0
-margin_bottom = 80.0
-rect_min_size = Vector2( 0, 80 )
-size_flags_horizontal = 5
-texture = ExtResource( 5 )
-expand = true
+custom_minimum_size = Vector2(0, 85)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 3
+texture = ExtResource("5")
 
 [node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/Details"]
-margin_right = 38.0
-margin_bottom = 22.0
-custom_constants/margin_top = 5
-custom_constants/margin_left = 5
-__meta__ = {
-"_edit_lock_": true,
-"_edit_use_anchors_": false
-}
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.064
+anchor_top = 0.5
+anchor_right = 0.936
+anchor_bottom = 0.5
+offset_left = 0.0079999
+offset_top = -44.5
+offset_right = -0.00799561
+offset_bottom = 43.5
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/Details/MarginContainer"]
-margin_left = 5.0
-margin_top = 5.0
-margin_right = 65.0
-margin_bottom = 77.0
-rect_min_size = Vector2( 60, 0 )
-custom_constants/separation = 0
+layout_mode = 2
+theme_override_constants/separation = 0
 
-[node name="Expense" parent="VBoxContainer/Details/MarginContainer/VBoxContainer" instance=ExtResource( 6 )]
-margin_right = 60.0
+[node name="Expense" parent="VBoxContainer/Details/MarginContainer/VBoxContainer" instance=ExtResource("6")]
+layout_mode = 2
 balance_value = -5
 
-[node name="Income" parent="VBoxContainer/Details/MarginContainer/VBoxContainer" instance=ExtResource( 6 )]
-margin_top = 18.0
-margin_right = 60.0
-margin_bottom = 36.0
+[node name="Income" parent="VBoxContainer/Details/MarginContainer/VBoxContainer" instance=ExtResource("6")]
+layout_mode = 2
 balance_type = 1
 balance_value = 12
 
-[node name="Buy" parent="VBoxContainer/Details/MarginContainer/VBoxContainer" instance=ExtResource( 6 )]
-margin_top = 36.0
-margin_right = 60.0
-margin_bottom = 54.0
+[node name="Buy" parent="VBoxContainer/Details/MarginContainer/VBoxContainer" instance=ExtResource("6")]
+layout_mode = 2
 balance_type = 2
 
-[node name="Sell" parent="VBoxContainer/Details/MarginContainer/VBoxContainer" instance=ExtResource( 6 )]
-margin_top = 54.0
-margin_right = 60.0
-margin_bottom = 72.0
+[node name="Sell" parent="VBoxContainer/Details/MarginContainer/VBoxContainer" instance=ExtResource("6")]
+layout_mode = 2
 balance_type = 3
 
 [node name="HSeparator" type="HSeparator" parent="VBoxContainer/Details/MarginContainer/VBoxContainer"]
 visible = false
-margin_top = 72.0
-margin_right = 43.0
-margin_bottom = 76.0
-custom_styles/separator = SubResource( 1 )
+layout_mode = 2
 
 [node name="TextureRect3" type="TextureRect" parent="VBoxContainer"]
-margin_top = 80.0
-margin_right = 78.0
-margin_bottom = 104.0
+layout_mode = 2
 size_flags_horizontal = 4
-texture = ExtResource( 7 )
+texture = ExtResource("7")
+stretch_mode = 5
 
-[node name="Results" parent="VBoxContainer/TextureRect3" instance=ExtResource( 6 )]
-anchor_top = -0.0175196
-anchor_bottom = -0.0175196
-margin_left = 5.0
-margin_top = 3.0
-margin_right = 48.0
-margin_bottom = 21.0
-rect_min_size = Vector2( 60, 0 )
+[node name="Results" parent="VBoxContainer/TextureRect3" instance=ExtResource("6")]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.064
+anchor_top = 0.5
+anchor_right = 0.936
+anchor_bottom = 0.5
+offset_left = 0.0079999
+offset_top = -11.0
+offset_right = -0.00800323
+offset_bottom = 8.0
+grow_horizontal = 2
+grow_vertical = 2
 balance_type = 4
 balance_value = 7
 

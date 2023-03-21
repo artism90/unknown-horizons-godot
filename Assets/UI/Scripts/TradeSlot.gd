@@ -1,15 +1,15 @@
-tool
+@tool
 extends InventorySlot
 class_name TradeSlot
 
 const NONE_TEXTURE = preload("res://Assets/UI/Icons/Resources/none_gray.png")
 
-onready var v_slider := $VSlider
+@onready var v_slider := $VSlider
 
 func update_display() -> void:
-	if not is_inside_tree(): yield(self, "ready"); _on_ready()
+	if not is_inside_tree(): await self.ready; _on_ready()
 
-	.update_display()
+	super()
 
 	if not label.visible and not texture_rect.visible:
 		resource_item.texture = NONE_TEXTURE

@@ -1,67 +1,39 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=6 format=3 uid="uid://cbihni8uvyje3"]
 
-[ext_resource path="res://Assets/UI/Fonts/SmallFontItalic.tres" type="DynamicFont" id=1]
-[ext_resource path="res://Assets/UI/Fonts/SmallFontBoldItalic.tres" type="DynamicFont" id=2]
-[ext_resource path="res://Assets/UI/Scenes/Labels/LabelEx.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Assets/UI/Scripts/HSliderEx.gd" type="Script" id=4]
-[ext_resource path="res://Assets/UI/Themes/Theme.tres" type="Theme" id=5]
-[ext_resource path="res://Assets/UI/Scripts/HSlider.gd" type="Script" id=6]
-
-[sub_resource type="StyleBoxFlat" id=1]
-content_margin_left = 4.0
-content_margin_right = 6.0
-draw_center = false
-border_width_left = 2
-border_width_top = 1
-border_width_right = 2
-border_width_bottom = 1
-border_color = Color( 0.345098, 0.278431, 0.14902, 1 )
-border_blend = true
-corner_radius_top_left = 1
-corner_radius_top_right = 1
-corner_radius_bottom_right = 1
-corner_radius_bottom_left = 1
+[ext_resource type="PackedScene" uid="uid://cbnxdcqt458h3" path="res://Assets/UI/Scenes/Labels/LabelEx.tscn" id="3"]
+[ext_resource type="FontFile" uid="uid://sdfro4oswrtf" path="res://External/Fonts/LinLibertineI.ttf" id="3_u5rqw"]
+[ext_resource type="Script" path="res://Assets/UI/Scripts/HSliderEx.gd" id="4"]
+[ext_resource type="FontFile" uid="uid://dgr8rlsjjeh22" path="res://External/Fonts/LinLibertineBI.ttf" id="4_vt414"]
+[ext_resource type="Script" path="res://Assets/UI/Scripts/HSlider.gd" id="6"]
 
 [node name="HSliderEx" type="VBoxContainer"]
-theme = ExtResource( 5 )
-script = ExtResource( 4 )
+script = ExtResource("4")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
-margin_right = 125.0
-margin_bottom = 20.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
+unique_name_in_owner = true
+layout_mode = 2
 
-[node name="LabelExDesc" parent="HBoxContainer" instance=ExtResource( 3 )]
-margin_right = 103.0
-margin_bottom = 20.0
-custom_fonts/font = ExtResource( 1 )
+[node name="LabelExDesc" parent="HBoxContainer" instance=ExtResource("3")]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_u5rqw")
+theme_override_font_sizes/font_size = 16
 text = "Unknown Slider:"
-autowrap = false
-font_style = 8
+autowrap_mode = 0
+font_style = 9
 
-[node name="LabelExValue" parent="HBoxContainer" instance=ExtResource( 3 )]
-margin_left = 107.0
-margin_right = 125.0
-margin_bottom = 20.0
+[node name="LabelExValue" parent="HBoxContainer" instance=ExtResource("3")]
+layout_mode = 2
 size_flags_horizontal = 1
-custom_fonts/font = ExtResource( 2 )
-custom_styles/normal = SubResource( 1 )
+theme_override_fonts/font = ExtResource("4_vt414")
+theme_override_font_sizes/font_size = 16
 text = "0"
-align = 2
-autowrap = false
-font_style = 11
+autowrap_mode = 0
+font_style = 12
 
 [node name="HSlider" type="HSlider" parent="."]
-margin_top = 24.0
-margin_right = 125.0
-margin_bottom = 46.0
-theme = ExtResource( 5 )
-script = ExtResource( 6 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
+unique_name_in_owner = true
+layout_mode = 2
+script = ExtResource("6")
 
 [connection signal="changed" from="HSlider" to="." method="_on_HSlider_changed"]
 [connection signal="value_changed" from="HSlider" to="." method="_on_HSlider_value_changed"]

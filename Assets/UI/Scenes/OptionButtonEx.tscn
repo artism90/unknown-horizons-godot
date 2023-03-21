@@ -1,41 +1,31 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=5 format=3 uid="uid://yeulo3xsc211"]
 
-[ext_resource path="res://Assets/UI/Fonts/SmallFontItalic.tres" type="DynamicFont" id=1]
-[ext_resource path="res://Assets/UI/Scripts/OptionButtonEx.gd" type="Script" id=2]
-[ext_resource path="res://Assets/UI/Themes/Theme.tres" type="Theme" id=3]
-[ext_resource path="res://Assets/UI/Scripts/OptionButton.gd" type="Script" id=4]
-[ext_resource path="res://Assets/UI/Scenes/Labels/LabelEx.tscn" type="PackedScene" id=5]
+[ext_resource type="Script" path="res://Assets/UI/Scripts/OptionButtonEx.gd" id="2"]
+[ext_resource type="FontFile" uid="uid://sdfro4oswrtf" path="res://External/Fonts/LinLibertineI.ttf" id="3_4bos5"]
+[ext_resource type="Script" path="res://Assets/UI/Scripts/OptionButton.gd" id="4"]
+[ext_resource type="PackedScene" uid="uid://cbnxdcqt458h3" path="res://Assets/UI/Scenes/Labels/LabelEx.tscn" id="5"]
 
 [node name="OptionButtonEx" type="HBoxContainer"]
-margin_right = 293.0
-margin_bottom = 30.0
-script = ExtResource( 2 )
-__meta__ = {
-"_edit_group_": true
-}
+offset_right = 293.0
+offset_bottom = 30.0
+script = ExtResource("2")
 
-[node name="LabelEx" parent="." instance=ExtResource( 5 )]
-margin_right = 120.0
-margin_bottom = 30.0
-rect_min_size = Vector2( 120, 0 )
+[node name="LabelEx" parent="." instance=ExtResource("5")]
+custom_minimum_size = Vector2(120, 0)
+layout_mode = 2
 size_flags_horizontal = 0
-custom_fonts/font = ExtResource( 1 )
+theme_override_fonts/font = ExtResource("3_4bos5")
+theme_override_font_sizes/font_size = 16
 text = "Descriptive Label:"
-valign = 1
+vertical_alignment = 1
 clip_text = true
-font_style = 8
+font_style = 9
 
 [node name="OptionButton" type="OptionButton" parent="."]
-margin_left = 124.0
-margin_right = 293.0
-margin_bottom = 30.0
-rect_min_size = Vector2( 165, 30 )
+custom_minimum_size = Vector2(165, 30)
+layout_mode = 2
 size_flags_horizontal = 3
-theme = ExtResource( 3 )
-script = ExtResource( 4 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
+script = ExtResource("4")
 
 [connection signal="item_focused" from="OptionButton" to="." method="_on_OptionButton_item_focused"]
 [connection signal="item_selected" from="OptionButton" to="." method="_on_OptionButton_item_selected"]

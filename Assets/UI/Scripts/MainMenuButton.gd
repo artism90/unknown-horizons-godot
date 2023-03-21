@@ -1,9 +1,9 @@
-tool
+@tool
 extends TextureButton
 
-export(String, "left", "right", "top", "bottom") var alignment := "left" setget set_alignment
-export var text := "" setget set_text
-export var texture: Texture = preload("res://Assets/UI/Icons/MainMenu/help_bw.png") setget set_texture # Fallback
+@export_enum("left", "right", "top", "bottom") var alignment := "left" : set = set_alignment
+@export var text := "" : set = set_text
+@export var texture: Texture2D = preload("res://Assets/UI/Icons/MainMenu/help_bw.png") : set = set_texture
 
 var alignments = {
 	left = Vector2(-200, 30),
@@ -13,18 +13,18 @@ var alignments = {
 }
 
 func _ready() -> void:
-	$Panel.rect_position = alignments[alignment]
+	$Panel.position = alignments[alignment]
 	$Panel/Label.text = text
 	$Icon.texture = texture
 
 func set_alignment(new_alignment: String) -> void:
 	alignment = new_alignment
-	$Panel.rect_position = alignments[alignment]
+	$Panel.position = alignments[alignment]
 
 func set_text(new_text: String) -> void:
 	text = new_text
 	$Panel/Label.text = text
 
-func set_texture(new_texture: Texture) -> void:
+func set_texture(new_texture: Texture2D) -> void:
 	texture = new_texture
 	$Icon.texture = texture

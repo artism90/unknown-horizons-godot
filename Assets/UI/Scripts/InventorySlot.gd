@@ -1,25 +1,25 @@
-tool
+@tool
 extends TextureButton
 class_name InventorySlot
 
-const Global = preload("res://Assets/World/Global.gd")
+#const Global = preload("res://Assets/World/Global.gd") TODO: Remove if possible
 
-export(bool) var show_if_empty := false setget set_show_if_empty
-export(Global.ResourceType) var resource_type setget set_resource_type
-export(int) var resource_value setget set_resource_value
+@export var show_if_empty: bool = false : set = set_show_if_empty
+@export var resource_type: Global.ResourceType : set = set_resource_type
+@export var resource_value: int : set = set_resource_value
 
-# TODO: Make dependent from currently selected ship
-export(int) var storage_limit := 30 setget set_storage_limit
+## [b]❗TODO: Make dependent from currently selected ship.[/b]
+@export var storage_limit: int = 30 : set = set_storage_limit
 
-onready var resource_item = $ResourceItem
-onready var label = $Label
-onready var texture_rect = $TextureRect
+@onready var resource_item = $ResourceItem
+@onready var label = $Label
+@onready var texture_rect = $TextureRect
 
 func _ready() -> void:
-	texture_rect.rect_pivot_offset = texture_rect.rect_size
+	texture_rect.pivot_offset = texture_rect.size
 
 func _draw() -> void:
-	if not is_inside_tree(): yield(self, "ready"); _on_ready()
+	if not is_inside_tree(): await self.ready; _on_ready()
 
 	update_display()
 
@@ -46,7 +46,7 @@ func set_show_if_empty(new_show_if_empty: bool) -> void:
 	_draw()
 
 func set_resource_type(new_resource_type: int) -> void:
-	if not is_inside_tree(): yield(self, "ready"); _on_ready()
+	if not is_inside_tree(): await self.ready; _on_ready()
 
 	#prints(self.name, "resource_type", resource_type, "=>", new_resource_type)
 
@@ -57,7 +57,7 @@ func set_resource_type(new_resource_type: int) -> void:
 	_draw()
 
 func set_resource_value(new_resource_value: int) -> void:
-	if not is_inside_tree(): yield(self, "ready"); _on_ready()
+	if not is_inside_tree(): await self.ready; _on_ready()
 
 	#prints(self.name, "resource_value", resource_value, "=>", new_resource_value)
 
@@ -69,7 +69,7 @@ func set_resource_value(new_resource_value: int) -> void:
 	_draw()
 
 func set_storage_limit(new_storage_limit: int) -> void:
-	if not is_inside_tree(): yield(self, "ready"); _on_ready()
+	if not is_inside_tree(): await self.ready; _on_ready()
 
 	#prints(self.name, "storage_limit", storage_limit, "=>", new_storage_limit)
 
@@ -77,19 +77,19 @@ func set_storage_limit(new_storage_limit: int) -> void:
 
 	# Always keep resource_value within the storage_limit
 	self.resource_value = clamp(resource_value, 0, storage_limit) as int
-	property_list_changed_notify()
+	notify_property_list_changed()
 
 	update_amount_bar()
 
 func update_amount_bar() -> void:
-	if not is_inside_tree(): yield(self, "ready"); _on_ready()
+	if not is_inside_tree(): await self.ready; _on_ready()
 
 	var scale_factor: float
 	if storage_limit > 0:
-		scale_factor = stepify(1.0 / storage_limit * resource_value, 0.01) as float
+		scale_factor = snapped(1.0 / storage_limit * resource_value, 0.01) as float
 	else:
 		scale_factor = 0
-	texture_rect.rect_scale.y = scale_factor
+	texture_rect.scale.y = scale_factor
 
 func _on_ready() -> void:
 	if not resource_item: resource_item = $ResourceItem

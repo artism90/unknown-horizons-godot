@@ -1,10 +1,10 @@
-tool
+@tool
 extends HBoxContainer
 class_name GameTypeButton
 
-export(String) var type = "" setget set_new_type
+@export var type: String = "" : set = set_new_type
 
-onready var check_box := $CheckBox
+@onready var check_box := $CheckBox
 
 func _ready() -> void:
 	check_box.text = type
@@ -26,4 +26,4 @@ func _on_pressed() -> void:
 	Audio.play_snd_click()
 	for type_button in get_parent().get_children():
 		if type_button != self:
-			type_button.get_node("CheckBox").pressed = false
+			type_button.get_node("CheckBox").button_pressed = false

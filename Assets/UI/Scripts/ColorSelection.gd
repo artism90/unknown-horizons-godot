@@ -1,11 +1,11 @@
 extends HBoxContainer
 
-onready var selected_color := $TextureRect/SelectedColor
-onready var choices := $Choices
+@onready var selected_color := $TextureRect/SelectedColor
+@onready var choices := $Choices
 
 func _ready() -> void:
 	for choice in choices.get_children():
-		choice.connect("gui_input", self, "_on_choice_gui_input", [choice])
+		choice.gui_input.connect(Callable(self, "_on_choice_gui_input").bind(choice))
 
 		if choice.color_to_faction == Global.faction:
 			selected_color.color = choice.color

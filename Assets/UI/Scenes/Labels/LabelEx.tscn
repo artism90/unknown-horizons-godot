@@ -1,14 +1,12 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=2 format=3 uid="uid://cbnxdcqt458h3"]
 
-[ext_resource path="res://Assets/UI/Scripts/LabelEx.gd" type="Script" id=1]
-[ext_resource path="res://Assets/UI/Themes/Theme.tres" type="Theme" id=2]
+[ext_resource type="Script" path="res://Assets/UI/Scripts/LabelEx.gd" id="1"]
 
 [node name="LabelEx" type="Label"]
-margin_right = 105.0
-margin_bottom = 18.0
+offset_right = 105.0
+offset_bottom = 18.0
 size_flags_horizontal = 3
 size_flags_vertical = 1
-theme = ExtResource( 2 )
 text = "Unknown Label"
-autowrap = true
-script = ExtResource( 1 )
+autowrap_mode = 3
+script = ExtResource("1")

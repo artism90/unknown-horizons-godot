@@ -1,4 +1,4 @@
-tool
+@tool
 extends TextureButton
 class_name MessageButton
 
@@ -51,7 +51,7 @@ enum MessageType {
 	SYSTEM
 }
 
-export(MessageType) var message_type := MessageType.LETTER setget set_message_type
+@export var message_type: MessageType = MessageType.LETTER : set = set_message_type
 
 func set_message_type(new_message_type: int) -> void:
 	message_type = new_message_type

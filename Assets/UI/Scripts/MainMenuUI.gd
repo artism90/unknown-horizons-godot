@@ -24,10 +24,10 @@ func _go_to_scene(scene: String) -> void:
 	Audio.play_snd_click()
 
 	if scene == "sp_game" or scene == "help" or scene == "options":
-		var subscene = _scenes[scene].instance()
+		var subscene = _scenes[scene].instantiate()
 		subscene.parent = self
 		visible = false
 		get_tree().get_root().add_child(subscene)
 	else:
 		#warning-ignore:return_value_discarded
-		get_tree().change_scene_to(_scenes[scene])
+		get_tree().change_scene_to_packed(_scenes[scene])
