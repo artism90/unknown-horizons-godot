@@ -1,10 +1,11 @@
-[gd_scene load_steps=18 format=3 uid="uid://c2tbomqvjcbbx"]
+[gd_scene load_steps=19 format=3 uid="uid://c2tbomqvjcbbx"]
 
 [ext_resource type="PackedScene" uid="uid://2sqc7gfxwyej" path="res://Assets/UI/Scenes/Menus/BookMenuPage.tscn" id="1"]
 [ext_resource type="PackedScene" uid="uid://dh51lrpv8p56h" path="res://Assets/UI/Scenes/LineEditEx.tscn" id="6"]
 [ext_resource type="PackedScene" uid="uid://cbnxdcqt458h3" path="res://Assets/UI/Scenes/Labels/LabelEx.tscn" id="7"]
 [ext_resource type="PackedScene" uid="uid://cbihni8uvyje3" path="res://Assets/UI/Scenes/HSliderEx.tscn" id="8"]
 [ext_resource type="PackedScene" uid="uid://cd4byu1hpqbyq" path="res://Assets/UI/Scenes/Separator.tscn" id="9"]
+[ext_resource type="Script" path="res://Assets/UI/Scripts/HSpaceEvenlyContainer.gd" id="9_nfsyu"]
 [ext_resource type="PackedScene" uid="uid://4ona153u3wvl" path="res://Assets/UI/Scenes/CaptionBlock.tscn" id="10"]
 [ext_resource type="FontFile" uid="uid://b132ikq6ayfyj" path="res://External/Fonts/LinLibertineC.ttf" id="10_ykia5"]
 [ext_resource type="Texture2D" uid="uid://cmaobd6boqksw" path="res://Assets/UI/Images/Background/MainMenu/selected_color_border.png" id="11"]
@@ -268,6 +269,7 @@ layout_mode = 2
 [node name="AISlider" type="HSlider" parent="TextureRect/MarginContainer/VBoxContainer/HBoxContainer/LeftPage/AIPlayerSelection/VBoxContainer/HBoxContainer" index="0"]
 custom_minimum_size = Vector2(217.03, 0)
 layout_mode = 2
+size_flags_horizontal = 3
 size_flags_vertical = 3
 max_value = 7.0
 value = 3.0
@@ -275,11 +277,47 @@ tick_count = 8
 ticks_on_borders = true
 script = SubResource("3")
 
-[node name="Label" type="Label" parent="TextureRect/MarginContainer/VBoxContainer/HBoxContainer/LeftPage/AIPlayerSelection/VBoxContainer" index="1"]
+[node name="MarginContainer" type="MarginContainer" parent="TextureRect/MarginContainer/VBoxContainer/HBoxContainer/LeftPage/AIPlayerSelection/VBoxContainer" index="1"]
+layout_mode = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_right = 4
+
+[node name="HSpaceEvenlyContainer" type="HBoxContainer" parent="TextureRect/MarginContainer/VBoxContainer/HBoxContainer/LeftPage/AIPlayerSelection/VBoxContainer/MarginContainer" index="0"]
 custom_minimum_size = Vector2(214, 0)
 layout_mode = 2
-size_flags_horizontal = 0
-text = "01234567"
+script = ExtResource("9_nfsyu")
+
+[node name="0" type="Label" parent="TextureRect/MarginContainer/VBoxContainer/HBoxContainer/LeftPage/AIPlayerSelection/VBoxContainer/MarginContainer/HSpaceEvenlyContainer" index="0"]
+layout_mode = 2
+text = "0"
+
+[node name="1" type="Label" parent="TextureRect/MarginContainer/VBoxContainer/HBoxContainer/LeftPage/AIPlayerSelection/VBoxContainer/MarginContainer/HSpaceEvenlyContainer" index="1"]
+layout_mode = 2
+text = "1"
+
+[node name="2" type="Label" parent="TextureRect/MarginContainer/VBoxContainer/HBoxContainer/LeftPage/AIPlayerSelection/VBoxContainer/MarginContainer/HSpaceEvenlyContainer" index="2"]
+layout_mode = 2
+text = "2"
+
+[node name="3" type="Label" parent="TextureRect/MarginContainer/VBoxContainer/HBoxContainer/LeftPage/AIPlayerSelection/VBoxContainer/MarginContainer/HSpaceEvenlyContainer" index="3"]
+layout_mode = 2
+text = "3"
+
+[node name="4" type="Label" parent="TextureRect/MarginContainer/VBoxContainer/HBoxContainer/LeftPage/AIPlayerSelection/VBoxContainer/MarginContainer/HSpaceEvenlyContainer" index="4"]
+layout_mode = 2
+text = "4"
+
+[node name="5" type="Label" parent="TextureRect/MarginContainer/VBoxContainer/HBoxContainer/LeftPage/AIPlayerSelection/VBoxContainer/MarginContainer/HSpaceEvenlyContainer" index="5"]
+layout_mode = 2
+text = "5"
+
+[node name="6" type="Label" parent="TextureRect/MarginContainer/VBoxContainer/HBoxContainer/LeftPage/AIPlayerSelection/VBoxContainer/MarginContainer/HSpaceEvenlyContainer" index="6"]
+layout_mode = 2
+text = "6"
+
+[node name="7" type="Label" parent="TextureRect/MarginContainer/VBoxContainer/HBoxContainer/LeftPage/AIPlayerSelection/VBoxContainer/MarginContainer/HSpaceEvenlyContainer" index="7"]
+layout_mode = 2
+text = "7"
 
 [node name="LabelEx" parent="TextureRect/MarginContainer/VBoxContainer/HBoxContainer/RightPage" index="0" instance=ExtResource("7")]
 layout_mode = 2
